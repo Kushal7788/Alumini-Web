@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Alumini',
+    'RegisterApp.apps.RegisterappConfig'
 ]
+AUTH_USER_MODEL = 'RegisterApp.MyUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +53,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Alumini.urls'
+
 
 TEMPLATES = [
     {
@@ -66,7 +69,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
-                'EventApp.context_processors.add_variable_to_context',
             ],
         },
     },
