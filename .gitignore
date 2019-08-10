@@ -1,0 +1,13 @@
+.idea
+*.iml
+*.xml
+*.pyc
+db.sqlite3
+/Alumini/__pycache__
+*.sqlite3
+venv
+venv/*
+media/*
+static/*
+db.*
+db.sqlite3
