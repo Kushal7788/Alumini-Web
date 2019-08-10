@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from RegisterApp.templates import *
-
+from RegisterApp import *
 
 def home(request):
     return render(request, 'LoginTemplates/Login.html', None)
