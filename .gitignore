@@ -7,7 +7,5 @@ db.sqlite3
 *.sqlite3
 venv
 venv/*
-media/*
-static/*
 db.*
 db.sqlite3
