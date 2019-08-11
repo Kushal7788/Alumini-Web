@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Alumini',
-    'RegisterApp.apps.RegisterappConfig'
+    'RegisterApp.apps.RegisterappConfig',
+    'crispy_forms',
 ]
 AUTH_USER_MODEL = 'RegisterApp.MyUser'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,8 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
+                #'social_django.context_processors.backends',
+                #'social_django.context_processors.login_redirect',
             ],
         },
     },

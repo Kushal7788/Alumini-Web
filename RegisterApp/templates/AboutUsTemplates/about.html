@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+
+{% block body %}
+
+{% for para in data %}
+    <h4>{{para.para1}}</h4><br><br>
+    <h4>{{para.para2}}</h4><br><br>
+    <h4>{{para.para3}}</h4><br><br>
+{% endfor %}
+
+{% endblock %}
+
