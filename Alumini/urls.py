@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('RegisterApp.urls')),
     url(r'^$', views.home, name='home'),
+
 ]
