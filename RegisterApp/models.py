@@ -11,7 +11,7 @@ class GenderField(models.Model):
 
 # Pass out batches like 2000,2001,2002,etc
 class PassoutBatch(models.Model):
-    title = models.IntegerField(max_length=4, null=True, blank=True)
+    title = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -58,8 +58,8 @@ class JobDescription(models.Model):
     position = models.CharField(max_length=100, blank=True, null=True)
     company_city = models.CharField(max_length=100, blank=True, null=True)
     company_state = models.CharField(max_length=100, blank=True, null=True)
-    work_exp_years = models.IntegerField(max_length=2, blank=True, null=True)
-    work_exp_months = models.IntegerField(max_length=2, blank=True, null=True)
+    work_exp_years = models.IntegerField(blank=True, null=True)
+    work_exp_months = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.company_name
