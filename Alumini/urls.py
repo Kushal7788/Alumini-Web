@@ -22,6 +22,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', include('RegisterApp.urls')),
+    # Home Page (/login)
     url(r'^$', views.home, name='home'),
 
 ]

@@ -1,0 +1,40 @@
+.contact{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:2rem;
+
+}
+
+.contact-text{
+    width:55%;
+    text-transform:capitalize;
+}
+.contact-text h1{
+    color:wheat;
+    padding:1rem;
+}
+
+.contact-text p{
+    color:wheat;
+     padding:1rem;
+}
+
+.contact-form{
+background:rgba(0,0,0,0.6);
+padding:1.5rem;
+ width:35%;
+ color:white;
+
+}
+
+@media screen and (max-width: 960px) {
+.contact{
+    flex-direction:column;
+}
+
+.contact-form{
+width:65%;
+}
+
+}

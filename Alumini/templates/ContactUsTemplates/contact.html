@@ -7,15 +7,16 @@
 {% endblock %}
 
 {% block body %}
-<div class="row">
-  <div class="col-md-6">
-      <h1>About Us</h1>
+<div class="contact">
+
+    <div class="contact-text">
+      <h1>Don't Hesitate<br> get in Touch with Us </h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia perferendis quos. Adipisci
           assumenda at atque beatae cupiditate dolore ea ex, expedita, explicabo id illum iste laboriosam nihil pariatur
           perspiciatis quasi quod reprehenderit sint soluta voluptatum! Culpa exercitationem fugit hic illum quam saepe
           unde voluptatibus. Asperiores maiores minus repudiandae sunt.</p>
   </div>
-  <div class="col-md-4" style="margin-left:13%">
+  <div class="contact-form">
       <form method="post">
           {% csrf_token %}
           {{ form|crispy }}
@@ -24,5 +25,6 @@
 
   </div>
 </div>
+
 
 {% endblock %}

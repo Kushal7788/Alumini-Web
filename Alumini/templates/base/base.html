@@ -57,7 +57,8 @@
         ); */
       }
     </style>
-
+    {% block css %}
+    {% endblock %}
   </head>
   <body class="background">
     <div class="navbar">
@@ -121,7 +122,7 @@
       </div>
     </div>
     <!-- END OF FOOTER -->
-    <script type="text/javascript" src="{% static 'login/js/login.js' %}"></script>
+    <script type="text/javascript" src="{% static 'base/js/base.js' %}"></script>
     {% block script %}
     {% endblock %}
   </body>
