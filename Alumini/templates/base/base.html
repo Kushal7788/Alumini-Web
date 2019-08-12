@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <title>{% block title %}Login{% endblock %}</title>
         <!--loads path to static files-->
     {% load staticfiles %}
-     <link
+    <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
 
-       <link
+    <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -34,61 +37,92 @@
       crossorigin="anonymous"
     ></script>
 
-<!--    Base Styles-->
-    <link rel="stylesheet" type="text/css" href="{% static 'base/css/base.css' %}"/>
-<!--    Sign in card styles-->
-    <link rel="stylesheet" type="text/css" href="{% static 'login/css/login.css' %}"/>
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+     <link rel="stylesheet" type="text/css" href="{% static 'base/css/base.css' %}"/>
     <style>
-        #bg{
-            background:url({% static 'base/img/bg.jpg' %});
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            object-fit: cover;
-        }
+      .background{
+        background-image: url("{% static 'base/img/bg-2.jpg' %}");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        -o-object-fit: cover;
+        object-fit: cover;
+        /* background-image: radial-gradient(
+          circle 788px at 14.5% 19.3%,
+          rgba(81, 109, 179, 1) 0%,
+          rgba(178, 98, 152, 1) 100.2%
+        ); */
+      }
     </style>
 
-</head>
-
-<body id="bg">
-  <nav
-      class="navbar navbar-expand-lg navbar-dark navbar-default"
-      style="background:rgba(0,0,0,0.6);">
-      <a class="navbar-brand logo" href="#">LOGO</a>
-      <a class="hello" href="#">Register</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse red" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#"
-            >Home <span class="sr-only">(current)</span></a
-          >
-          <a class="nav-item nav-link" href="{% url 'about' %}">About us</a>
-          <a class="nav-item nav-link" href="{% url 'contact' %}">Contact us</a>
-          <a class="nav-item nav-link" href="#">Members</a>
-        </div>
+  </head>
+  <body class="background">
+    <div class="navbar">
+      <div class="logo">
+        <h2>LOGO</h2>
       </div>
-    </nav>
-  {% block body %}
-  {% endblock %}
+      <ul class="links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Members</a></li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+      </ul>
+      <div class="right">
+        <button>Register</button>
+      </div>
 
-    <footer class="footer mt-auto py-3">
-   <div class="footer-text">
-       <span class="copy">&copy;Copyright</span>
-       <a href="{% url 'about' %}" class="footer-link">About Us</a>
-       <a href="{% url 'contact' %}" class="footer-link">Contact Us</a>
-   </div>
-    </footer>
-</body>
+      <div class="toggle">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </div>
 
+    {% block body %}
+    {% endblock %}
+    <!-- Footer -->
+    <!-- FOOTER START -->
+    <div class="footer">
+      <div class="contain">
+        <div class="col">
+          <h1><strong>Contact Info</strong></h1>
+          <p>
+            <strong>Adress:</strong> 514 S. Magnolia St. Orlando, FL 32806
+            <!-- Random Adress -->
+          </p>
+          <p><strong>Email:</strong> email@example.com</p>
+          <p><strong>Tel.:</strong> (888) 888 8888</p>
+        </div>
+        <div class="col">
+          <h1>About Us</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque imperdiet consectetur dolor in elementum.
+          </p>
+        </div>
+        <div class="col social">
+          <h1>Social</h1>
+          <ul>
+            <li>
+              <a href="#" class="fa fa-facebook"></a>
+            </li>
+            <li>
+              <a href="#" class="fa fa-twitter"></a>
+            </li>
+            <li>
+              <a href="#" class="fa fa-instagram"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- END OF FOOTER -->
+    <script type="text/javascript" src="{% static 'login/js/login.js' %}"></script>
+    {% block script %}
+    {% endblock %}
+  </body>
 </html>
