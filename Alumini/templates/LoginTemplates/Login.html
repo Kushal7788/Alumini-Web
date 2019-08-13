@@ -1,6 +1,13 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
+
+    {% if user.is_authenticated %}
+
+<!--    Somthing To display when user is logged in-->
+
+
+    {% else %}
     <main id="back">
       <div class="main-container">
         <div class="d-flex justify-content-around h-100 flex">
@@ -72,6 +79,7 @@
         </div>
       </div>
     </main>
+    {% endif %}
 {% endblock %}
 
 

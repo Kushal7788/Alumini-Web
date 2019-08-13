@@ -11,6 +11,7 @@ def home(request):
 
         user = authenticate(username=username, password=password)
 
+        # print(user)
         if user is not None:
             if user.is_active:
                 # print("io")
