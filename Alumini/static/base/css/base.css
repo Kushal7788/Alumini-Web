@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Numans");
-{% loadstatic %}
-body {
 
-}
 
 body,
 button,
@@ -117,9 +114,7 @@ button:hover {
   z-index: 20;
   top: 65px;
 }
-.main-container {
-  padding: 5rem;
-}
+
 
 @media screen and (max-width: 760px) {
   .navbar .right {
@@ -226,6 +221,13 @@ button:hover {
     filter: blur(1px);
     opacity: 0.8;
   }
+/*
+   .navbar.collapsed ~ .footer {
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+    opacity: 0.8;
+  }
+  */
 
   .navbar.sticky {
     position: fixed;
@@ -233,7 +235,24 @@ button:hover {
   }
 }
 
+.dropdown-item {
+  margin: 0;
+  padding: 5px;
+}
+
+.navbar ul.links li .dropdown-item {
+  color: black;
+}
+
+.dropdown-item:hover {
+  background: #ffc600;
+}
+
 /* main */
+.main-container {
+  padding: 5rem;
+}
+
 .Alumini-text {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -428,6 +447,7 @@ input:focus {
 .fa:hover {
   opacity: 0.7;
   text-decoration: none;
+  color:white;
 }
 
 .fa-facebook {
