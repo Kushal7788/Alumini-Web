@@ -24,5 +24,5 @@ urlpatterns = [
     path('login/', include('RegisterApp.urls')),
     # Home Page (/login)
     url(r'^$', views.home, name='home'),
-
+    url(r'^logout/$', views.user_logout, name='user_logout'),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
@@ -25,3 +25,8 @@ def home(request):
             return render(request, 'LoginTemplates/Login.html', {})
     else:
         return render(request, 'LoginTemplates/Login.html', {})
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')
