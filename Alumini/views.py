@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-
+from .form import *
 
 def home(request):
     if request.method == 'POST':
@@ -39,3 +39,19 @@ def user_logout(request):
     logout(request)
     return redirect('home')
 
+def about(request):
+    data = AboutUs.objects.all()
+    return render(request, 'AboutUsTemplates/about.html', {'data': data})
+
+
+def contact(request):
+    form = ContactForm()
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return login(request)
+        else:
+            return redirect('contact')
+
+    return render(request, 'ContactUsTemplates/contact.html', {'form': form})

@@ -17,13 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-
-
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', include('RegisterApp.urls')),
+    url(r'^about$', views.about, name='about'),
+    url(r'^contact$', views.contact, name='contact'),
     # Home Page (/login)
     url(r'^$', views.home, name='home'),
     url(r'^login/reset-password$', views.reset_password, name='reset_password'),

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import *
+from Alumini.models import *
 
 admin.site.register(MyUser)
 admin.site.register(GenderField)
