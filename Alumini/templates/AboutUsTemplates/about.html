@@ -1,12 +1,17 @@
 {% extends 'base/base.html' %}
-
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'about/css/about.css' %}"/>
+{% endblock %}
 {% block body %}
-
+<div class="about-us-text">
+    <h1>About Us</h1>
 {% for para in data %}
+
     <h4>{{para.para1}}</h4><br><br>
     <h4>{{para.para2}}</h4><br><br>
     <h4>{{para.para3}}</h4><br><br>
 {% endfor %}
-
+</div>
 {% endblock %}
 

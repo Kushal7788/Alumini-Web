@@ -25,3 +25,12 @@ def home(request):
             return render(request, 'LoginTemplates/Login.html', {})
     else:
         return render(request, 'LoginTemplates/Login.html', {})
+
+
+def reset_password(request):
+    return render(request, "LoginTemplates/reset_password.html")
+
+
+def reset_password_new(request):
+    return render(request, 'LoginTemplates/new_password.html')
+
