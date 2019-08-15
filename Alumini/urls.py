@@ -30,4 +30,6 @@ urlpatterns = [
     url(r'^reset-password-new/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.reset_password_new, name='reset_password_new'),
 
+    url(r'^logout/$', views.user_logout, name='user_logout'),
+
 ]

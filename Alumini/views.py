@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
@@ -33,4 +33,9 @@ def reset_password(request):
 
 def reset_password_new(request):
     return render(request, 'LoginTemplates/new_password.html')
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')
 
