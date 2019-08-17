@@ -105,7 +105,9 @@ background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
       {% if user.is_authenticated %}
       {% else %}
         <div class="right">
-          <button>Register</button>
+            <form action="{% url 'register' %}" >
+              <button type="submit">Register</button>
+            </form>
         </div>
       {% endif %}
 

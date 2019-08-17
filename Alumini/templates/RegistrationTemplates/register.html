@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Registration Form</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="colorlib.com">
+        {% load staticfiles %}
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="{% static 'register/fonts/material-design-iconic-font/css/material-design-iconic-font.css' %}">
+
+		<!-- DATE-PICKER -->
+		<link rel="stylesheet" href="{% static 'register/vendor/date-picker/css/datepicker.min.css' %}">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{% static 'register/css/style.css' %}">
+	</head>
+	<body>
+		<div class="wrapper">
+            <form action="{% url 'submit_form' %}" id="wizard">
+        		<!-- SECTION 1 -->
+                <h4></h4>
+                <section>
+                    <h3>Basic Information</h3>
+                	<div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                First Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="text" class="form-control" name="first_name">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Middle Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="text" class="form-control" name="middle_name">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Last Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="text" class="form-control" name="last_name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Date of Birth
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-calendar"></i>
+                                <input type="text" class="form-control datepicker-here" data-language='en' data-date-format="dd - mm - yyyy" id="dp1" name="date_of_birth">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Passout-Batch
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <select name="passout_batch" id="passout_batch" class="form-control" >
+                                    <option value="united states" class="option">2019-2020</option>
+                                    <option value="united kingdom" class="option">2018-2019</option>
+                                    <option value="viet nam" class="option">2017-2018</option>
+                                </select>
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Gender
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <select name="gender" id="" class="form-control" >
+                                    <option value="united states" class="option">Male</option>
+                                    <option value="united kingdom" class="option">Female</option>
+                                    <option value="viet nam" class="option">Other</option>
+                                </select>
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Email ID/Username
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-email"></i>
+                                <input type="text" class="form-control" name="email_username">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Phone Number
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-smartphone-android"></i>
+                                <input type="text" class="form-control" name="phone_number">
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                
+				<!-- SECTION 2 -->
+                <h4></h4>
+                <section>
+                	<h3>School address</h3>
+                    <div class="form-row">
+                        
+                        <div class="form-col">
+                            <label for="">
+                                Street Address
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-pin"></i>
+                                <input type="text" class="form-control" name="school_street_address">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Landmark
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-pin"></i>
+                                <input type="text" class="form-control" name="school_landmark">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Pincode
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-pin"></i>
+                                <input type="text" class="form-control" name="school_pincode">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                District
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-home"></i>
+                                <input type="text" class="form-control" name="school_district">
+                            </div>
+                        </div>
+                         <div class="form-col">
+                            <label for="">
+                                Taluka
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-home"></i>
+                                <input type="text" class="form-control" name="school_taluka">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                City
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-pin-drop"></i>
+                                <input type="text" class="form-control" name="school_city">
+                            </div>
+                        </div>    
+                        <div class="form-col">
+                            <label for="">
+                                Hostel Name
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <select name="hostel" id="" class="form-control">
+                                    <option value="united states" class="option">Hostel1</option>
+                                    <option value="united kingdom" class="option">Hostel2</option>
+                                    <option value="viet nam" class="option">Hostel3</option>
+                                </select>
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+
+                <!-- SECTION 3 -->
+                <h4></h4>
+                <section>
+                    <h3 style="margin-bottom: 37px;">Current Address</h3>
+                    <div class="form-row">
+                        
+                        <div class="form-col">
+                            <label for="">
+                                Street Address
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-home"></i>
+                                <input type="text" class="form-control" name="current_street_address">
+                            </div>
+                        </div>
+                         <div class="form-col">
+                            <label for="">
+                                Landmark
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-home"></i>
+                                <input type="text" class="form-control" name="current_landmark">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                Pincode
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-pin"></i>
+                                <input type="text" class="form-control" name="current_pincode">
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Country
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <select name="current_country" class="form-control countries" id="countryId">
+                                    <option value="">Select Country</option>
+                                </select>
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                State
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>                             
+                                <select name="current_state" class="form-control states" id="stateId">
+                                    <option value="">Select State</option>
+                                </select>
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="">
+                                City
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>                             
+                                <select name="current_city" class="form-control cities" id="cityId">
+                                    <option value="">Select City</option>
+                                </select>
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </div>
+                        </div>
+                                
+
+                    </div>
+                    
+                </section>
+            </form>
+		</div>
+
+		<script src="{% static 'register/js/jquery-3.3.1.min.js' %}"></script>
+		
+		<!-- JQUERY STEP -->
+		<script src="{% static 'register/js/jquery.steps.js' %}"></script>
+
+		<!-- DATE-PICKER -->
+		<script src="{% static 'register/vendor/date-picker/js/datepicker.js' %}"></script>
+		<script src="{% static 'register/vendor/date-picker/js/datepicker.en.js' %}"></script>
+
+		<script src="{% static 'register/js/main.js' %}"></script>
+
+
+<script src="//geodata.solutions/includes/countrystatecity.js"></script>
+
+
+
+        <script>
+        $(function() {
+            $( "#click" ).click(function() {
+                let x = document.getElementById("dp1");
+                let new_val = $("#dp1").val().split(' - ');
+                 let dateYear = parseInt(new_val[0]);
+                 let dateMonth = parseInt(new_val[1]);
+                 let dateDay = parseInt(new_val[2]);
+                let st = dateYear+ "*" + dateMonth+ "*" + dateDay;
+            });
+        });
+        </script>
+
+<!-- Template created and distributed by Colorlib -->
+</body>
+</html>

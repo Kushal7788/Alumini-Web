@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .form import *
 
+
 def home(request):
     if request.method == 'POST':
 
@@ -39,6 +40,7 @@ def user_logout(request):
     logout(request)
     return redirect('home')
 
+
 def about(request):
     data = AboutUs.objects.all()
     return render(request, 'AboutUsTemplates/about.html', {'data': data})
@@ -55,3 +57,16 @@ def contact(request):
             return redirect('contact')
 
     return render(request, 'ContactUsTemplates/contact.html', {'form': form})
+
+
+def register(request):
+    return render(request, 'RegistrationTemplates/register.html', {})
+
+
+def submit_form(request):
+    if request.POST :
+        print(request.POST.get('first_name'))
+
+
+
+
