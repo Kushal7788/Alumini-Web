@@ -64,8 +64,16 @@ def register(request):
 
 
 def submit_form(request):
-    if request.POST :
-        print(request.POST.get('first_name'))
+
+    if request.method == 'POST' :
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        print("Hii")
+        return redirect('home')
+    else:
+        print("Hello")
+        return redirect('home')
+
 
 
 

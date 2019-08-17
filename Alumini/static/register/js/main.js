@@ -24,7 +24,6 @@ $(function(){
         $(".actions ul").removeClass("mt-7");
       }
 
-        alert("he");
 
 
       return true;
@@ -33,7 +32,7 @@ $(function(){
       // Used to skip the "Warning" step if the user is old enough.
     },
     onFinishing: function(event, currentIndex) {
-    alert("HElli")
+            $('#wizard').submit();
 
       },
         
@@ -60,6 +59,6 @@ $(function(){
         }
     }) 
     // Date Picker
-    var dp1 = $('#dp1').datepicker().data('datepicker');
+    let dp1 = $('#dp1').datepicker().data('datepicker');
     dp1.selectDate( new Date( ));
 })
