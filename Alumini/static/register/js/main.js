@@ -10,22 +10,32 @@ $(function(){
             next: "Next",
             previous: "Back"
         },
-        onStepChanging: function (event, currentIndex, newIndex) { 
-            if ( newIndex === 1 ) {
-                $('.steps ul').addClass('step-2');
-            } else {
-                
-                $('.steps ul').removeClass('step-2');
-            }
-            if ( newIndex === 2 ) {
-                $('.steps ul').addClass('step-3');
-                $('.actions ul').addClass('mt-7');
-            } else {
-                $('.steps ul').removeClass('step-3');
-                $('.actions ul').removeClass('mt-7');
-            }
-            return true; 
-        }
+        onStepChanging: function (event, currentIndex, newIndex) {
+        if (newIndex === 1) {
+        $(".steps ul").addClass("step-2");
+      } else {
+        $(".steps ul").removeClass("step-2");
+      }
+      if (newIndex === 2) {
+        $(".steps ul").addClass("step-3");
+        $(".actions ul").addClass("mt-7");
+      } else {
+        $(".steps ul").removeClass("step-3");
+        $(".actions ul").removeClass("mt-7");
+      }
+
+        alert("he");
+
+
+      return true;
+    },
+    onStepChanged: function(event, currentIndex, priorIndex) {
+      // Used to skip the "Warning" step if the user is old enough.
+    },
+    onFinishing: function(event, currentIndex) {
+    alert("HElli")
+
+      },
         
             
     });
