@@ -8,12 +8,7 @@
     <title>{% block title %}Login{% endblock %}</title>
         <!--loads path to static files-->
     {% load staticfiles %}
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link
       rel="stylesheet"
@@ -55,9 +50,12 @@
           rgba(81, 109, 179, 1) 0%,
           rgba(178, 98, 152, 1) 100.2%
         ); */
+        background-color: #7f53ac;
+background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
       }
     </style>
-
+    {% block css %}
+    {% endblock %}
   </head>
   <body class="background">
     <div class="navbar">
@@ -65,14 +63,52 @@
         <h2>LOGO</h2>
       </div>
       <ul class="links">
+        {% if user.is_authenticated %}
         <li><a href="#">Home</a></li>
         <li><a href="#">Members</a></li>
+        <li><a href="#">Jobs</a></li>
+        <li><a href="#">Internships</a></li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {{user.username}}
+          </a>
+          <div
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+            style="margin: 0;"
+          >
+            <a class="dropdown-item" href="#" style="margin: 0;padding:5px"
+              >Profile</a
+            >
+              <a class="dropdown-item" href="{% url 'user_logout' %}" style="margin: 0;padding:5px"
+              >Logout</a
+            >
+          </div>
+        </li>
+      </ul>
+        {% else %}
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="#">Home</a></li>
         <li><a href="{% url 'about' %}">About Us</a></li>
         <li><a href="{% url 'contact' %}">Contact Us</a></li>
+
+        {% endif %}
       </ul>
-      <div class="right">
-        <button>Register</button>
-      </div>
+      {% if user.is_authenticated %}
+      {% else %}
+        <div class="right">
+          <button>Register</button>
+        </div>
+      {% endif %}
+
 
       <div class="toggle">
         <div class="line1"></div>
@@ -121,7 +157,7 @@
       </div>
     </div>
     <!-- END OF FOOTER -->
-    <script type="text/javascript" src="{% static 'login/js/login.js' %}"></script>
+    <script type="text/javascript" src="{% static 'base/js/base.js' %}"></script>
     {% block script %}
     {% endblock %}
   </body>

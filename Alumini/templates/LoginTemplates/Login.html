@@ -1,6 +1,13 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
+
+    {% if user.is_authenticated %}
+
+<!--    Somthing To display when user is logged in-->
+
+
+    {% else %}
     <main id="back">
       <div class="main-container">
         <div class="d-flex justify-content-around h-100 flex">
@@ -20,7 +27,8 @@
               <h3>Sign In</h3>
             </div>
             <div class="card-body">
-              <form>
+              <form method="post" action="">
+                 {% csrf_token %}
                 <div class="input-group form-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
@@ -31,6 +39,7 @@
                     type="text"
                     class="form-control"
                     placeholder="username"
+                    name="username"
                   />
                 </div>
                 <div class="input-group form-group">
@@ -43,8 +52,16 @@
                     type="password"
                     class="form-control"
                     placeholder="password"
+                    name="password"
                   />
                 </div>
+                {% if messages %}
+                    <ul style="color:red ; text-align:center;padding:5px;list-style:none;">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
                 <div class="row align-items-center remember">
                   <input type="checkbox" />Remember Me
                 </div>
@@ -62,13 +79,14 @@
                 Don't have an account?<a href="#">Sign Up</a>
               </div>
               <div class="d-flex justify-content-center">
-                <a href="#">Forgot your password?</a>
+                <a href="{% url 'reset_password' %}">Forgot your password?</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </main>
+    {% endif %}
 {% endblock %}
 
 
