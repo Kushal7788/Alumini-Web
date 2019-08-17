@@ -125,12 +125,7 @@ background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
       <div class="contain">
         <div class="col">
           <h1><strong>Contact Info</strong></h1>
-          <p>
-            <strong>Adress:</strong> 514 S. Magnolia St. Orlando, FL 32806
-            <!-- Random Adress -->
-          </p>
-          <p><strong>Email:</strong> email@example.com</p>
-          <p><strong>Tel.:</strong> (888) 888 8888</p>
+            <p>{{ contact_us.contact_info }}</p>
         </div>
         <div class="col">
           <h1>About Us</h1>
@@ -143,13 +138,13 @@ background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
           <h1>Social</h1>
           <ul>
             <li>
-              <a href="#" class="fa fa-facebook"></a>
+                <a href="{{ contact_us.fb_link }}" class="fa fa-facebook"></a>
             </li>
             <li>
-              <a href="#" class="fa fa-twitter"></a>
+                <a href="{{ contact_us.twitter_link }}" class="fa fa-twitter"></a>
             </li>
             <li>
-              <a href="#" class="fa fa-instagram"></a>
+                <a href="{{ contact_us.insta_link }}" class="fa fa-instagram"></a>
             </li>
           </ul>
         </div>
