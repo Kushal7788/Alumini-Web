@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import *
-from Alumini.models import *
 
 admin.site.register(MyUser)
 admin.site.register(GenderField)
@@ -12,5 +11,3 @@ admin.site.register(UserAddr)
 admin.site.register(SchoolAdd)
 admin.site.register(JobDescription)
 admin.site.register(HigherStudies)
-admin.site.register(AboutUs)
-admin.site.register(ContactUs)
