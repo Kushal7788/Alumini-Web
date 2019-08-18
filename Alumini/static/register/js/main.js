@@ -24,34 +24,41 @@ $(function(){
         $(".steps ul").removeClass("step-3");
         $(".actions ul").removeClass("mt-7");
       }
-
+//        if(currentIndex == 1)
+//        {
+//            $.ajax({
+//            type: "POST",
+//            url: 'submit_form/',
+//            data: {
+//            'name': "name.value",
+//            'middle':"mid.value",
+//            },
+//            dataType: 'json',
+//
+//      });
+//        }
 
 
       return true;
     },
-    onStepChanged: function(event, currentIndex, priorIndex) {
-      // Used to skip the "Warning" step if the user is old enough.
-    },
+
     onFinishing: function(event, currentIndex) {
             alert("Hello");
             $('#wizard').submit();
 
       },
-        
+
+
             
     });
     // Custom Button Jquery Steps
     $('.forward').click(function(){
     	$("#wizard").steps('next');
-    })
+    });
     $('.backward').click(function(){
         $("#wizard").steps('previous');
-    })
-    // Grid 
-    $('.grid .grid-item').click(function(){
-        $('.grid .grid-item').removeClass('active');
-        $(this).addClass('active');
-    })
+    });
+
     // Click to see password 
     $('.password i').click(function(){
         if ( $('.password input').attr('type') === 'password' ) {
@@ -63,4 +70,4 @@ $(function(){
     // Date Picker
     let dp1 = $('#dp1').datepicker().data('datepicker');
     dp1.selectDate( new Date( ));
-})
+});

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 from .form import *
 
 
@@ -66,7 +67,7 @@ def register(request):
 
 def submit_form(request):
     print("hhhh")
-    if request.method == 'POST' :
+    if request.method == 'POST':
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         print("Hii")

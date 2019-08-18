@@ -32,6 +32,6 @@ urlpatterns = [
     url(r'^logout/$', views.user_logout, name='user_logout'),
 
     url(r'^register/$', views.register, name='register'),
-    url(r'^register/submit_form$', views.reset_password, name='submit_form'),
+    url(r'^register/submit_form/$', views.submit_form, name='submit_form'),
 
 ]
