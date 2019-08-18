@@ -17,8 +17,9 @@
 	</head>
 	<body>
 		<div class="wrapper">
-            <form action="{% url 'submit_form' %}" id="wizard">
+            <form action="{% url 'submit_form' %}" method="post" id="wizard">
         		<!-- SECTION 1 -->
+                {% csrf_token %}
                 <h4></h4>
                 <section>
                     <h3>Basic Information</h3>
