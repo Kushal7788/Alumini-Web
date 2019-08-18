@@ -4,6 +4,7 @@
 *.pyc
 db.sqlite3
 /Alumini/__pycache__
+/Alumini/migrations
 *.sqlite3
 venv
 venv/*

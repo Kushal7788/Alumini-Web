@@ -8,12 +8,12 @@ class AboutUs(models.Model):
 
 
 class ContactUs(models.Model):
-    user_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     email = models.EmailField()
     query = models.TextField(max_length=300)
 
     def __str__(self):
-        return self.user_name
+        return self.name
 
 
 class AluminiHome(models.Model):

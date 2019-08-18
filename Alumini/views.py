@@ -18,26 +18,26 @@ def home(request):
             if user.is_active:
                 # print("io")
                 login(request, user)
-                return render(request, 'LoginTemplates/Login.html', {})
+                return render(request, 'LoginTemplates/login.html', {})
             else:
                 messages.error(request, 'Invalid Username or Password')
-                return render(request, 'LoginTemplates/Login.html', {})
+                return render(request, 'LoginTemplates/login.html', {})
         else:
             messages.error(request, 'Invalid Username or Password')
-            return render(request, 'LoginTemplates/Login.html', {})
+            return render(request, 'LoginTemplates/login.html', {})
     else:
-        return render(request, 'LoginTemplates/Login.html', {})
+        return render(request, 'LoginTemplates/login.html', {})
 
 
-def reset_password(request):
-    return render(request, "LoginTemplates/reset_password.html")
+def resetPassword(request):
+    return render(request, "LoginTemplates/reset-password.html")
 
 
-def reset_password_new(request):
-    return render(request, 'LoginTemplates/new_password.html')
+def resetPasswordNew(request):
+    return render(request, 'LoginTemplates/new-password.html')
 
 
-def user_logout(request):
+def userLogout(request):
     logout(request)
     return redirect('home')
 
@@ -53,7 +53,7 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save(commit=True)
-            return login(request)
+            return redirect('home')
         else:
             return redirect('contact')
 
@@ -65,7 +65,7 @@ def register(request):
     return render(request, 'RegistrationTemplates/register.html', {})
 
 
-def submit_form(request):
+def submitForm(request):
     print("hhhh")
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
