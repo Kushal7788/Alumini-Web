@@ -11,6 +11,7 @@ $(function(){
             previous: "Back"
         },
         onStepChanging: function (event, currentIndex, newIndex) {
+            alert("Hekkio");
         if (newIndex === 1) {
         $(".steps ul").addClass("step-2");
       } else {
@@ -32,6 +33,7 @@ $(function(){
       // Used to skip the "Warning" step if the user is old enough.
     },
     onFinishing: function(event, currentIndex) {
+            alert("Hello");
             $('#wizard').submit();
 
       },

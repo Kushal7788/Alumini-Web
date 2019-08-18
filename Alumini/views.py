@@ -60,11 +60,12 @@ def contact(request):
 
 
 def register(request):
+    print("Entering Register")
     return render(request, 'RegistrationTemplates/register.html', {})
 
 
 def submit_form(request):
-
+    print("hhhh")
     if request.method == 'POST' :
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
