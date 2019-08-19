@@ -11,10 +11,10 @@ def home(request):
 
         username = request.POST.get('username')
         password = request.POST.get('password')
-
+        print(username, password)
         user = authenticate(username=username, password=password)
 
-        # print(user)
+
         if user is not None:
             if user.is_active:
                 # print("io")
@@ -107,7 +107,8 @@ def submit_form(request):
         user.user_phone = phone_no
         user.email = username
         user.username = username
-        user.password='test'
+        user.password = 'test'
+        user.set_password(user.password)
         user.save()
 
         print(first_name,last_name,dob,passout)

@@ -119,7 +119,7 @@ img {
   font-family: "Poppins-Medium";
 }
 .steps ul:after {
-  content: "/ 3";
+  content: "/ 5";
   font-size: 15px;
   color: #ccc;
   font-family: "Poppins-Medium";
@@ -144,6 +144,12 @@ img {
   content: "4";
 }
 .steps ul.step-4:after {
+  left: 31px;
+}
+.steps ul.step-5:before {
+  content: "5";
+}
+.steps ul.step-5:after {
   left: 31px;
 }
 

@@ -30,6 +30,13 @@ $(function(){
         $(".steps ul").removeClass("step-4");
         $(".actions ul").removeClass("mt-7");
       }
+      if (newIndex === 4) {
+        $(".steps ul").addClass("step-5");
+        $(".actions ul").addClass("mt-7");
+      } else {
+        $(".steps ul").removeClass("step-5");
+        $(".actions ul").removeClass("mt-7");
+      }
 //        if(currentIndex == 1)
 //        {
 //            $.ajax({
