@@ -25,13 +25,13 @@ urlpatterns = [
     url(r'^contact$', views.contact, name='contact'),
     # Home Page (/login)
     url(r'^$', views.home, name='home'),
-    url(r'^login/reset-password$', views.reset_password, name='reset_password'),
+    url(r'^login/reset-password$', views.resetPassword, name='reset-password'),
     url(r'^reset-password-new/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        views.reset_password_new, name='reset_password_new'),
+        views.resetPasswordNew, name='reset-password-new'),
 
-    url(r'^logout/$', views.user_logout, name='user_logout'),
+    url(r'^logout/$', views.userLogout, name='user-logout'),
 
     url(r'^register/$', views.register, name='register'),
-    url(r'^register/submit_form/$', views.submit_form, name='submit_form'),
+    url(r'^register/submit_form/$', views.submitForm, name='submit-form'),
 
 ]

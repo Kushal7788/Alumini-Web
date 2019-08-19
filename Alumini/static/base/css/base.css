@@ -109,6 +109,7 @@ button:hover {
   position: fixed;
   z-index: 40;
 }
+
 .navbar.sticky ~ main {
   position: relative;
   z-index: 20;
