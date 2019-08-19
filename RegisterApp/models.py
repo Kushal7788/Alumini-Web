@@ -14,7 +14,7 @@ class PassoutBatch(models.Model):
     title = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
 
 # different courses like Btech,BE,etc

@@ -11,7 +11,6 @@ $(function(){
             previous: "Back"
         },
         onStepChanging: function (event, currentIndex, newIndex) {
-            alert("Hekkio");
         if (newIndex === 1) {
         $(".steps ul").addClass("step-2");
       } else {
@@ -22,6 +21,13 @@ $(function(){
         $(".actions ul").addClass("mt-7");
       } else {
         $(".steps ul").removeClass("step-3");
+        $(".actions ul").removeClass("mt-7");
+      }
+      if (newIndex === 3) {
+        $(".steps ul").addClass("step-4");
+        $(".actions ul").addClass("mt-7");
+      } else {
+        $(".steps ul").removeClass("step-4");
         $(".actions ul").removeClass("mt-7");
       }
 //        if(currentIndex == 1)
