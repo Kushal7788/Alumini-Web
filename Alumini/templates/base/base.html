@@ -37,6 +37,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
      <link rel="stylesheet" type="text/css" href="{% static 'base/css/base.css' %}"/>
+    {% block css %}
+    {% endblock %}
     <style>
       .background{
         background-image: url("{% static 'base/img/bg-2.jpg' %}");
@@ -50,12 +52,11 @@
           rgba(81, 109, 179, 1) 0%,
           rgba(178, 98, 152, 1) 100.2%
         ); */
-        background-color: #7f53ac;
-background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
+<!--        background-color: #7f53ac;-->
+<!--background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);-->
       }
     </style>
-    {% block css %}
-    {% endblock %}
+
   </head>
   <body class="background">
     <div class="navbar">
@@ -127,12 +128,12 @@ background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
         <div class="col">
           <h1><strong>Contact Info</strong></h1>
             <p>{{ contact_us.contact_info }}</p>
+
         </div>
         <div class="col">
           <h1>About Us</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque imperdiet consectetur dolor in elementum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, veniam!
           </p>
         </div>
         <div class="col social">
@@ -154,7 +155,7 @@ background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
     </div>
     <!-- END OF FOOTER -->
     <script type="text/javascript" src="{% static 'base/js/base.js' %}"></script>
-    {% block script %}
+    {% block scripts %}
     {% endblock %}
   </body>
 </html>

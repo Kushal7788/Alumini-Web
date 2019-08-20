@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Registration Form</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="author" content="colorlib.com">
-        {% load staticfiles %}
-		<!-- MATERIAL DESIGN ICONIC FONT -->
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block css %}
+        <!-- MATERIAL DESIGN ICONIC FONT -->
 		<link rel="stylesheet" href="{% static 'register/fonts/material-design-iconic-font/css/material-design-iconic-font.css' %}">
 
 		<!-- DATE-PICKER -->
@@ -14,8 +10,8 @@
 
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="{% static 'register/css/style.css' %}">
-	</head>
-	<body>
+{% endblock %}
+{% block body %}
 		<div class="wrapper">
             <form action="{% url 'submit-form' %}" method="post" id="wizard">
         		<!-- SECTION 1 -->
@@ -448,23 +444,8 @@
                 </section>
             </form>
 		</div>
-
-		<script src="{% static 'register/js/jquery-3.3.1.min.js' %}"></script>
-		
-		<!-- JQUERY STEP -->
-		<script src="{% static 'register/js/jquery.steps.js' %}"></script>
-
-		<!-- DATE-PICKER -->
-		<script src="{% static 'register/vendor/date-picker/js/datepicker.js' %}"></script>
-		<script src="{% static 'register/vendor/date-picker/js/datepicker.en.js' %}"></script>
-
-		<script src="{% static 'register/js/main.js' %}"></script>
-
-
-<script src="//geodata.solutions/includes/countrystatecity.js"></script>
-
-
-
+{% endblock %}
+    {% block scripts %}
         <script>
         $(function() {
             $( "#click" ).click(function() {
@@ -477,7 +458,18 @@
             });
         });
         </script>
+    <script src="{% static 'register/js/jquery-3.3.1.min.js' %}"></script>
 
-<!-- Template created and distributed by Colorlib -->
-</body>
-</html>
+		<!-- JQUERY STEP -->
+    <script src="{% static 'register/js/jquery.steps.js' %}"></script>
+
+		<!-- DATE-PICKER -->
+    <script src="{% static 'register/vendor/date-picker/js/datepicker.js' %}"></script>
+    <script src="{% static 'register/vendor/date-picker/js/datepicker.en.js' %}"></script>
+
+    <script src="{% static 'register/js/main.js' %}"></script>
+
+
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+    {% endblock %}
+
