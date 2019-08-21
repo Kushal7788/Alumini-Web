@@ -26,8 +26,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="first_name">
+                                <input type="text" class="form-control" name="first_name" id="first_name">
                             </div>
+                            <label for="first_name" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -35,8 +36,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="middle_name">
+                                <input type="text" class="form-control" name="middle_name" id="middle_name">
                             </div>
+                            <label for="middle_name" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -44,8 +46,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="last_name">
+                                <input type="text" class="form-control" name="last_name" id="last_name">
                             </div>
+                            <label for="last_name" generated="true" class="error"></label>
                         </div>
                     </div>
                     <div class="form-row">
@@ -57,6 +60,7 @@
                                 <i class="zmdi zmdi-calendar"></i>
                                 <input type="text" class="form-control datepicker-here" data-language='en' data-date-format="dd - mm - yyyy" id="dp1" name="date_of_birth">
                             </div>
+                             <label for="dp1" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -71,6 +75,7 @@
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="passout_batch" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -78,13 +83,14 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-account-o"></i>
-                                <select name="gender" id="" class="form-control" >
+                                <select name="gender" id="Gender" class="form-control" >
                                     {% for gen in gender %}
                                         <option value="{{gen.pk}}" class="option">{{gen.title}}</option>
                                     {% endfor %}
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="Gender" generated="true" class="error"></label>
                         </div>
                     </div>
                     <div class="form-row">
@@ -94,8 +100,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-email"></i>
-                                <input type="text" class="form-control" name="email_username">
+                                <input type="text" class="form-control" name="email_username" id="email_username">
                             </div>
+                            <label for="email_username" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -103,8 +110,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-smartphone-android"></i>
-                                <input type="text" class="form-control" name="phone_number">
+                                <input type="text" class="form-control" name="phone_number" id="phone_number">
                             </div>
+                            <label for="phone_number" generated="true" class="error"></label>
                         </div>
 
                     </div>
@@ -122,8 +130,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-pin"></i>
-                                <input type="text" class="form-control" name="school_street_address">
+                                <input type="text" class="form-control" name="school_street_address" id="school_street_address">
                             </div>
+                            <label for="school_street_address" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -131,8 +140,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-pin"></i>
-                                <input type="text" class="form-control" name="school_landmark">
+                                <input type="text" class="form-control" name="school_landmark" id="school_landmark">
                             </div>
+                            <label for="school_landmark" generated="true" class="error"></label>
                         </div>
                     </div>
                     <div class="form-row">
@@ -142,8 +152,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-pin"></i>
-                                <input type="text" class="form-control" name="school_pincode">
+                                <input type="text" class="form-control" name="school_pincode" id="school_pincode">
                             </div>
+                            <label for="school_pincode" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -151,8 +162,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-home"></i>
-                                <input type="text" class="form-control" name="school_district">
+                                <input type="text" class="form-control" name="school_district" id="school_district">
                             </div>
+                            <label for="school_district" generated="true" class="error"></label>
                         </div>
                          <div class="form-col">
                             <label for="">
@@ -160,8 +172,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-home"></i>
-                                <input type="text" class="form-control" name="school_taluka">
+                                <input type="text" class="form-control" name="school_taluka" id="school_taluka">
                             </div>
+                             <label for="school_taluka" generated="true" class="error"></label>
                         </div>
                         
                     </div>
@@ -172,8 +185,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-pin-drop"></i>
-                                <input type="text" class="form-control" name="school_city">
+                                <input type="text" class="form-control" name="school_city" id="school_city">
                             </div>
+                           <label for="school_city" generated="true" class="error"></label>
                         </div>    
                         <div class="form-col">
                             <label for="">
@@ -181,13 +195,14 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-account-o"></i>
-                                <select name="hostel" id="" class="form-control">
+                                <select name="hostel" id="hostel" class="form-control">
                                     {% for hostel in hostels %}
                                         <option value="{{ hostel.pk }}" class="option">{{ hostel.title }}</option>
                                     {% endfor %}
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="hostel" generated="true" class="error"></label>
                         </div>
                     </div>
                     
@@ -205,8 +220,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-home"></i>
-                                <input type="text" class="form-control" name="current_street_address">
+                                <input type="text" class="form-control" name="current_street_address" id="current_street_address">
                             </div>
+                            <label for="current_street_address" generated="true" class="error"></label>
                         </div>
                          <div class="form-col">
                             <label for="">
@@ -214,8 +230,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-home"></i>
-                                <input type="text" class="form-control" name="current_landmark">
+                                <input type="text" class="form-control" name="current_landmark" id="current_landmark">
                             </div>
+                             <label for="current_landmark" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -223,8 +240,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-pin"></i>
-                                <input type="text" class="form-control" name="current_pincode">
+                                <input type="text" class="form-control" name="current_pincode" id="current_pincode">
                             </div>
+                            <label for="current_pincode" generated="true" class="error"></label>
                         </div>
                     </div>
                     
@@ -243,6 +261,7 @@
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="countryId" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -255,6 +274,7 @@
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="stateId" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -267,6 +287,7 @@
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="cityId" generated="true" class="error"></label>
                         </div>
                                 
 
@@ -286,13 +307,14 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-account-o"></i>
-                                <select name="higher_studies" id="" class="form-control">
+                                <select name="higher_studies" id="higher_studies" class="form-control">
                                     {% for higher_study in higher_studies %}
                                         <option value="{{ higher_study.pk }}" class="option">{{ higher_study.title }}</option>
                                     {% endfor %}
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                           <label for="higher_studies" generated="true" class="error"></label>
                         </div>
                        <div class="form-col">
                             <label for="">
@@ -300,13 +322,14 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-account-o"></i>
-                                <select name="course_taken" id="" class="form-control">
+                                <select name="course_taken" id="course_taken" class="form-control">
                                     {% for course in courses %}
                                         <option value="{{ course.pk }}" class="option">{{ course.title }}</option>
                                     {% endfor %}
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                           <label for="course_taken" generated="true" class="error"></label>
                         </div>
                     </div>
                     <div class="form-row">
@@ -316,8 +339,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-pin-drop"></i>
-                                <input type="text" class="form-control" name="college_name">
+                                <input type="text" class="form-control" name="college_name" id="college_name">
                             </div>
+                            <label for="college_name" generated="true" class="error"></label>
                         </div>
                     </div>
                     <div class="form-row">
@@ -332,6 +356,7 @@
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="countryId" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -344,6 +369,7 @@
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="stateId" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -351,11 +377,12 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-account-o"></i>
-                                <select name="college_city" class="form-control cities" id="cityId">
+                                <select name="current_city" class="form-control cities" id="cityId">
                                     <option value="">Select City</option>
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="cityId" generated="true" class="error"></label>
                         </div>
 
 
@@ -376,8 +403,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-pin-drop"></i>
-                                <input type="text" class="form-control" name="company_name">
+                                <input type="text" class="form-control" name="company_name" id="company_name">
                             </div>
+                            <label for="company_name" generated="true" class="error"></label>
                         </div>
                     </div>
                      <div class="form-row">
@@ -387,8 +415,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-pin-drop"></i>
-                                <input type="text" class="form-control" name="position">
+                                <input type="text" class="form-control" name="position" id="position">
                             </div>
+                            <label for="position" generated="true" class="error"></label>
                         </div>
                          <div class="form-col">
                             <label for="">
@@ -396,8 +425,9 @@
                             </label>
                             <div class="form-holder">
                                 <i class="zmdi zmdi-pin-drop"></i>
-                                <input type="text" class="form-control" name="work_experience">
+                                <input type="text" class="form-control" name="work_experience" id="work_experience">
                             </div>
+                             <label for="work_experience" generated="true" class="error"></label>
                         </div>
                     </div>
                     <div class="form-row">
@@ -412,6 +442,7 @@
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="countryId" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -424,6 +455,7 @@
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="stateId" generated="true" class="error"></label>
                         </div>
                         <div class="form-col">
                             <label for="">
@@ -436,6 +468,7 @@
                                 </select>
                                 <i class="zmdi zmdi-chevron-down"></i>
                             </div>
+                            <label for="cityId" generated="true" class="error"></label>
                         </div>
 
 
@@ -469,7 +502,7 @@
 
     <script src="{% static 'register/js/main.js' %}"></script>
 
-
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
     <script src="//geodata.solutions/includes/countrystatecity.js"></script>
     {% endblock %}
 

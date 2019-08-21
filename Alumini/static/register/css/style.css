@@ -240,6 +240,12 @@ h3 {
   display: none;
 }
 
+/*Error Styling */
+.form-col .error{
+    color:red;
+    font-size:14px;
+}
+
 @media (max-width: 767px) {
   body {
     background: red;
