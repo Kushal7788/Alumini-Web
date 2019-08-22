@@ -97,6 +97,10 @@ class MyUser(AbstractUser):
     last_name = models.CharField(max_length=200, null=True)
     username = models.CharField(max_length=100, null=True, unique=True)
     email = models.EmailField(max_length=100, unique=True)
+    fb_link = models.URLField(blank=True, null=True)
+    insta_link = models.URLField(blank=True, null=True)
+    twitter_link = models.URLField(blank=True, null=True)
+    linkedin_link = models.URLField(blank=True, null=True)
     # prof_img = models.ImageField(upload_to=prof_path, blank=True)
     # Other Essential Info of user
     user_phone = models.CharField(max_length=10, blank=True, null=True)
@@ -114,5 +118,3 @@ class MyUser(AbstractUser):
 
     def __str__(self):
         return str(self.first_name) + ' ' + str(self.middle_name) + ' ' + str(self.last_name) + ' ' + str(self.email)
-
-
