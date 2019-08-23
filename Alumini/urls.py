@@ -33,5 +33,5 @@ urlpatterns = [
 
     url(r'^register/$', views.register, name='register'),
     url(r'^register/submit_form/$', views.submit_form, name='submit-form'),
-
+    url(r'^login/profile$',views.profileView,name='profile'),
 ]
