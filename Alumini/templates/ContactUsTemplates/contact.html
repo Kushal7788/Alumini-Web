@@ -7,33 +7,51 @@
 {% endblock %}
 
 {% block body %}
-<div class="contact">
+    <div class="contact">
 
-    <div class="contact-text">
-      <h1>Don't Hesitate<br> get in Touch with Us </h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia perferendis quos. Adipisci
-          assumenda at atque beatae cupiditate dolore ea ex, expedita, explicabo id illum iste laboriosam nihil pariatur
-          perspiciatis quasi quod reprehenderit sint soluta voluptatum! Culpa exercitationem fugit hic illum quam saepe
-          unde voluptatibus. Asperiores maiores minus repudiandae sunt.</p>
-  </div>
-  <div class="contact-form">
-      <form method="post">
-          {% csrf_token %}
-          <label for="user_name">User Name</label>
-          <input class="contact__form-input" type="text" id="user_name" name="user_name">
+        <div class="contact-text">
+            <h1>Don't Hesitate<br> get in Touch with Us </h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias officia perferendis quos. Adipisci
+                assumenda at atque beatae cupiditate dolore ea ex, expedita, explicabo id illum iste laboriosam nihil
+                pariatur
+                perspiciatis quasi quod reprehenderit sint soluta voluptatum! Culpa exercitationem fugit hic illum quam
+                saepe
+                unde voluptatibus. Asperiores maiores minus repudiandae sunt.</p>
+        </div>
+        <div class="contact-form">
+            <form method="post">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <ul>
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if form.name.errors %}
+                    <ul>
+                        {% for error in form.name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
 
-          <label for="email" style="margin-top: 0.5rem;">Email</label>
-          <input class="contact__form-input" type="email" id="email" name="email">
+                <label for="user_name">User Name</label>
+                <input class="contact__form-input" type="text" id="user_name" name="name">
+                {{ form.name.errors }}
+                <label for="email" style="margin-top: 0.5rem;">Email</label>
+                <input class="contact__form-input" type="email" id="email" name="email">
+                {{ form.email.errors }}
+                <label for="message" style="margin-top: 0.5rem;">Message</label>
+                <textarea class="contact__form-textarea" type="text" id="message" name="query"></textarea>
+                {{ form.query.errors }}
+                <h1><input type="submit" class="btn btn-success"></h1>
+            </form>
 
-          <label for="message" style="margin-top: 0.5rem;">Message</label>
-          <textarea class="contact__form-textarea" type="text" id="message" name="message"></textarea>
-          <h1><input type="submit" class="btn btn-success"></h1>
-      </form>
-
-  </div>
-</div>
+        </div>
+    </div>
 {% endblock %}
-    {% block scripts %}
+{% block scripts %}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="{% static 'contact/js/contact.js' %}"></script>
     <script>
@@ -43,4 +61,4 @@
             SweetAlertFailure();
         {% endif %}
     </script>
-    {% endblock %}
+{% endblock %}

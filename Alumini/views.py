@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.views.decorators.csrf import csrf_exempt
+from . import settings
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
+from RegisterApp.models import MyUser, GenderField, PassoutBatch, HostelName, HigherStudies, CourseName
 from .form import *
-from RegisterApp.models import MyUser,GenderField,PassoutBatch,HostelName,HigherStudies,CourseName
 
 
 def home(request):
@@ -13,7 +15,6 @@ def home(request):
         password = request.POST.get('password')
         print(username, password)
         user = authenticate(username=username, password=password)
-
 
         if user is not None:
             if user.is_active:
@@ -49,16 +50,30 @@ def about(request):
 
 
 def contact(request):
-    form = ContactForm()
+    success_form = 2
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save(commit=True)
-            return redirect('home')
-        else:
-            return redirect('contact')
+            msg = request.POST.get('query')
+            name = request.POST.get('name')
+            user_email = request.POST.get('email')
+            form.save()
+            success_form = 1
+            mail_subject = 'The person ' + name + ' has contacted us'
+            message = render_to_string('ContactUsTemplates/contact-us-mail.html', {
+                'user': name,
+                'id': user_email,
+                'msg': msg,
+            })
+            send_mail(mail_subject, message, 'kushal.007dum@gmail.com', ['kushshah777888@gmail.com'])
 
-    return render(request, 'ContactUsTemplates/contact.html', {'form': form})
+        else:
+            # print(form.errors)
+            success_form = 0
+    else:
+        form = ContactForm()
+
+    return render(request, 'ContactUsTemplates/contact.html', {'form': form, 'success_form': success_form})
 
 
 def register(request):
@@ -69,22 +84,22 @@ def register(request):
     higher_studies = HigherStudies.objects.all()
     courses = CourseName.objects.all()
     args = {
-        'gender' :gender,
-        'passout' : passout,
-        'hostels' : hostels,
-        'higher_studies' : higher_studies,
-        'courses' : courses
+        'gender': gender,
+        'passout': passout,
+        'hostels': hostels,
+        'higher_studies': higher_studies,
+        'courses': courses
     }
     return render(request, 'RegistrationTemplates/register.html', args)
 
 
-#return date of birth in the format in which we can enter it in database
+# return date of birth in the format in which we can enter it in database
 def ret_date_of_birth(dob):
     l = dob.split(' - ')
-    return l[2]+"-"+l[1]+"-"+l[0]
+    return l[2] + "-" + l[1] + "-" + l[0]
 
 
-#To push the data entered by user into MyUser table
+# To push the data entered by user into MyUser table
 def submit_form(request):
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
@@ -92,7 +107,7 @@ def submit_form(request):
         last_name = request.POST.get('last_name')
         dob = ret_date_of_birth(request.POST.get('date_of_birth'))
         passout = PassoutBatch.objects.get(pk=request.POST.get('passout_batch'))
-        gender = GenderField.objects.get(pk = request.POST.get('gender'))
+        gender = GenderField.objects.get(pk=request.POST.get('gender'))
         username = request.POST.get('email_username')
         phone_no = request.POST.get('phone_number')
         school_street_add = request.POST.get('school_street_address')
@@ -111,26 +126,24 @@ def submit_form(request):
         user.set_password(user.password)
         user.save()
 
-        print(first_name,last_name,dob,passout)
+        print(first_name, last_name, dob, passout)
         return redirect('home')
     else:
         print("Hello")
         return redirect('home')
 
+
 def profileView(request):
     current_user = request.user
-    high_edu  = current_user.highereducation_set.all()
-    #this will give queryset of all jobs of particular user.
+    high_edu = current_user.highereducation_set.all()
+    # this will give queryset of all jobs of particular user.
     jobs = current_user.jobdescription_set.all()
-    #In order to get current job location
-    current_location = jobs.get(is_working = True)
-    my_profile={
-        'current_user':current_user,
-        'jobs':jobs,
-        'job_location':current_location,
-        'education':high_edu,
+    # In order to get current job location
+    current_location = jobs.get(is_working=True)
+    my_profile = {
+        'current_user': current_user,
+        'jobs': jobs,
+        'job_location': current_location,
+        'education': high_edu,
     }
-    return render(request,'ProfileTemplates/profile.html',my_profile)
-
-
-
+    return render(request, 'ProfileTemplates/profile.html', my_profile)
