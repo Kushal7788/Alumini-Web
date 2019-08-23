@@ -1,9 +1,9 @@
 from django.contrib import messages
-from . import settings
 from django.contrib.auth import authenticate, login, logout
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
-from django.core.mail import send_mail
+
 from RegisterApp.models import MyUser, GenderField, PassoutBatch, HostelName, HigherStudies, CourseName
 from .form import *
 
