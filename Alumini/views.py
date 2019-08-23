@@ -1,11 +1,14 @@
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 
-from RegisterApp.models import MyUser, GenderField, PassoutBatch, HostelName, HigherStudies, CourseName
 from .form import *
+
+EMAIL_HOST = settings.EMAIL_HOST_USER
+ADMIN_MAIL = settings.ADMIN_MAIL
 
 
 def home(request):
@@ -65,7 +68,7 @@ def contact(request):
                 'id': user_email,
                 'msg': msg,
             })
-            send_mail(mail_subject, message, 'kushal.007dum@gmail.com', ['kushshah777888@gmail.com'])
+            send_mail(mail_subject, message, EMAIL_HOST, [ADMIN_MAIL])
 
         else:
             # print(form.errors)
