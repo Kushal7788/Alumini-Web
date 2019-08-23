@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
-from django.contrib.auth import views as auth_views
+
 from . import views
 
 urlpatterns = [
@@ -25,12 +25,10 @@ urlpatterns = [
     url(r'^contact$', views.contact, name='contact'),
     # Home Page (/login)
     url(r'^$', views.home, name='home'),
-    url(r'^login/reset-password$', views.resetPassword, name='reset-password'),
-    url(r'^reset-password-new/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-        views.resetPasswordNew, name='reset-password-new'),
-
+    url(r'^login/$', views.home, name='home'),
     url(r'^logout/$', views.userLogout, name='user-logout'),
-
     url(r'^register/', include('RegisterApp.urls'), name='register'),
-    url(r'^login/profile$',views.profileView,name='profile'),
+    url(r'^login/profile$', views.profileView, name='profile'),
+    url('^', include('django.contrib.auth.urls')),
+
 ]
