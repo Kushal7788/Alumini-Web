@@ -19,12 +19,28 @@
   <div class="contact-form">
       <form method="post">
           {% csrf_token %}
-          {{ form|crispy }}
-          <h1><input type="submit" class="btn btn-success"></h1><br>
+          <label for="user_name">User Name</label>
+          <input class="contact__form-input" type="text" id="user_name" name="user_name">
+
+          <label for="email" style="margin-top: 0.5rem;">Email</label>
+          <input class="contact__form-input" type="email" id="email" name="email">
+
+          <label for="message" style="margin-top: 0.5rem;">Message</label>
+          <textarea class="contact__form-textarea" type="text" id="message" name="message"></textarea>
+          <h1><input type="submit" class="btn btn-success"></h1>
       </form>
 
   </div>
 </div>
-
-
 {% endblock %}
+    {% block scripts %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="{% static 'contact/js/contact.js' %}"></script>
+    <script>
+        {% if success_form == 1 %}
+            SweetAlertSuccess();
+        {% elif success_form == 0 %}
+            SweetAlertFailure();
+        {% endif %}
+    </script>
+    {% endblock %}
