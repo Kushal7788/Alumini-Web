@@ -1,6 +1,7 @@
+from datetime import date
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from datetime import date
 
 
 class GenderField(models.Model):
@@ -61,8 +62,6 @@ class JobDescription(models.Model):
     position = models.CharField(max_length=100, blank=True, null=True)
     company_city = models.CharField(max_length=100, blank=True, null=True)
     company_state = models.CharField(max_length=100, blank=True, null=True)
-    # work_exp_years = models.IntegerField(blank=True, null=True)
-    # work_exp_months = models.IntegerField(blank=True, null=True)
     join_date = models.DateField(null=False, default=date(2000, 1, 1))
     resign_date = models.DateField(null=False, default=date(2000, 1, 1))
     is_working = models.BooleanField(default=False)
@@ -127,7 +126,6 @@ class MyUser(AbstractUser):
     # user_school = models.ForeignKey(SchoolAdd, on_delete=models.PROTECT, blank=True, null=True)
     # # User Current Address
     # user_addr = models.ForeignKey(UserAddr, on_delete=models.PROTECT, blank=True, null=True)
-
     # # user higher education
     # user_high_edu = models.ForeignKey(HigherEducation, on_delete=models.PROTECT, blank=True, null=True)
     # # user job descriptions

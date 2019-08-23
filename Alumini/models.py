@@ -17,6 +17,7 @@ class ContactUs(models.Model):
 
 
 class AluminiHome(models.Model):
+    id_no = models.IntegerField(blank=True, null=True)
     contact_info = models.TextField(max_length=500, blank=True)
     fb_link = models.URLField(blank=True)
     insta_link = models.URLField(blank=True)

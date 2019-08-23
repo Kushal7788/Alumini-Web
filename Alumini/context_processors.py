@@ -3,5 +3,5 @@ from .models import *
 
 def addVariableToContext(request):
     return {
-        'contact_us': AluminiHome.objects.all(),
+        'homedata': AluminiHome.objects.get(id_no=1),
     }
