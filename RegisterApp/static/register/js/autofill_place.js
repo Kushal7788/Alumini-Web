@@ -42,6 +42,7 @@ function fillInAddress() {
     if(temp.isNumber())
     {
         console.log(temp);
+        document.getElementById('current_pincode').value = place.address_components[len-1]['long_name'];
         len = len - 1;
     }
     document.getElementById('current_country').value = place.address_components[len-1]['long_name'];
