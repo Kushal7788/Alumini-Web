@@ -34,14 +34,6 @@ def home(request):
         return render(request, 'LoginTemplates/login.html', {})
 
 
-def resetPassword(request):
-    return render(request, 'LoginTemplates/reset-password.html', {})
-
-
-def resetPasswordNew(request):
-    return render(request, 'LoginTemplates/new-password.html', {})
-
-
 def userLogout(request):
     logout(request)
     return redirect('home')
