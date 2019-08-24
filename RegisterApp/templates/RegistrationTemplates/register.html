@@ -477,7 +477,6 @@
                                 Facebook link
                             </label>
                             <div class="form-holder">
-                                <i class="zmdi zmdi-pin-drop"></i>
                                 <input type="text" class="form-control" name="facebook_link" id="facebook_link">
                             </div>
                             <label for="facebook_link" generated="true" class="error"></label>
@@ -489,7 +488,6 @@
                                 Instagram link
                             </label>
                             <div class="form-holder">
-                                <i class="zmdi zmdi-pin-drop"></i>
                                 <input type="text" class="form-control" name="insta_link" id="insta_link">
                             </div>
                             <label for="insta_link" generated="true" class="error"></label>
@@ -501,7 +499,6 @@
                                 Twitter Link
                             </label>
                             <div class="form-holder">
-                                <i class="zmdi zmdi-pin-drop"></i>
                                 <input type="text" class="form-control" name="twitter_link" id="twitter_link">
                             </div>
                             <label for="twitter_link" generated="true" class="error"></label>
@@ -509,6 +506,46 @@
                     </div>
                 </section>
 
+            <!-- SECTION 7 -->
+                 <h4></h4>
+                 <section>
+                     <h3 style="margin-bottom: 37px;">Final Step</h3>
+                     <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Profile Photo
+                            </label>
+                            <div class="form-holder">
+                                <img src="{% static 'register/images/profile.jpg' %}" width="100" height="100">
+                            </div>
+                        </div>
+                    </div>
+                     <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Password
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="password" class="form-control" name="password" id="password">
+                            </div>
+                            <label for="password" generated="true" class="error"></label>
+                        </div>
+                    </div>
+                     <div class="form-row">
+                        <div class="form-col">
+                            <label for="">
+                                Confirm Password
+                            </label>
+                            <div class="form-holder">
+                                <i class="zmdi zmdi-account-o"></i>
+                                <input type="password" class="form-control" name="conf_password" id="conf_password">
+                            </div>
+                            <label for="conf_password" generated="true" class="error"></label>
+                        </div>
+                    </div>
+                </section>
+            
 
             </form>
 		</div>
