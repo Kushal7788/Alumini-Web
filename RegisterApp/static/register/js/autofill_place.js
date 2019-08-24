@@ -23,6 +23,11 @@ function initAutocomplete() {
   document.getElementById('work_city'), {types: ['geocode']});
   autocomplete_work.setFields(['address_component']);
   autocomplete_work.addListener('place_changed', fillInAddress_work);
+
+  autocomplete_school = new google.maps.places.Autocomplete(
+  document.getElementById('school_street_address'), {types: ['geocode']});
+  autocomplete_school.setFields(['address_component']);
+  autocomplete_school.addListener('place_changed', fillInAddress_school);
 }
 
 function fillInAddress() {
@@ -36,7 +41,7 @@ function fillInAddress() {
     var temp = place.address_components[len-1]['long_name'].toString();
     if(temp.isNumber())
     {
-        console.log(temp)
+        console.log(temp);
         len = len - 1;
     }
     document.getElementById('current_country').value = place.address_components[len-1]['long_name'];
@@ -51,18 +56,53 @@ function fillInAddress_college() {
     st = st.substring(0,st.indexOf(','))
     s.value = st;
     len = place.address_components.length;
+    String.prototype.isNumber = function(){return /^\d+$/.test(this);}
+    var temp = place.address_components[len-1]['long_name'].toString();
+    if(temp.isNumber())
+    {
+        console.log(temp);
+        len = len - 1;
+    }
     document.getElementById('college_country').value = place.address_components[len-1]['long_name'];
     document.getElementById('college_state').value = place.address_components[len-2]['long_name'];
     document.getElementById('college_city').value = place.address_components[len-3]['long_name'];
 }
 
-function fillInAddress_work() {
-    var place = autocomplete_work.getPlace();
-    s = document.getElementById('work_city');
+function fillInAddress_school() {
+    var place = autocomplete_school.getPlace();
+    s = document.getElementById('school_street_address');
     st = s.value;
     st = st.substring(0,st.indexOf(','))
     s.value = st;
     len = place.address_components.length;
+    String.prototype.isNumber = function(){return /^\d+$/.test(this);}
+    var temp = place.address_components[len-1]['long_name'].toString();
+    if(temp.isNumber())
+    {
+        console.log(temp);
+        document.getElementById('school_pincode').value = place.address_components[len-1]['long_name'];
+        len = len - 1;
+    }
+    document.getElementById('school_city').value = place.address_components[len-3]['long_name'];
+}
+
+
+function fillInAddress_work() {
+    var place = autocomplete_work.getPlace();
+    s = document.getElementById('work_city');
+    st = s.value;
+    st = st.substring(0,st.indexOf(','));
+    s.value = st;
+    len = place.address_components.length;
+    String.prototype.isNumber = function(){return /^\d+$/.test(this);}
+    var temp = place.address_components[len-1]['long_name'].toString();
+    if(temp.isNumber())
+    {
+        console.log(temp);
+
+        len = len - 1;
+    }
+
     document.getElementById('work_country').value = place.address_components[len-1]['long_name'];
     document.getElementById('work_state').value = place.address_components[len-2]['long_name'];
     document.getElementById('work_city').value = place.address_components[len-3]['long_name'];
