@@ -1,4 +1,16 @@
 let form = $("#wizard").show();
+
+$("#is_working").change(function() {
+    alert("h1");
+    if(this.checked) {
+        $("#dp3").prop("disabled", true);
+
+    }
+    else
+    {
+        $("#dp3").prop("disabled", false);
+    }
+});
 $(function () {
     $("#wizard").steps({
         headerTag: "h4",
@@ -182,4 +194,8 @@ $(function () {
     // Date Picker
     let dp1 = $('#dp1').datepicker().data('datepicker');
     dp1.selectDate(new Date());
+    let dp2 = $('#dp2').datepicker().data('datepicker');
+    dp2.selectDate(new Date());
+    let dp3 = $('#dp3').datepicker().data('datepicker');
+    dp3.selectDate(new Date());
 });

@@ -50,6 +50,7 @@ class UserAddr(models.Model):
     user_state = models.CharField(null=True, blank=True, max_length=50)
     user_district = models.CharField(null=True, blank=True, max_length=50)
     user_city = models.CharField(null=True, blank=True, max_length=50)
+    user_country = models.CharField(null=True, blank=True, max_length=50)
 
     def __str__(self):
         return self.user_addr
@@ -62,6 +63,7 @@ class JobDescription(models.Model):
     position = models.CharField(max_length=100, blank=True, null=True)
     company_city = models.CharField(max_length=100, blank=True, null=True)
     company_state = models.CharField(max_length=100, blank=True, null=True)
+    company_country = models.CharField(max_length=100, blank=True, null=True)
     join_date = models.DateField(null=False, default=date(2000, 1, 1))
     resign_date = models.DateField(null=False, default=date(2000, 1, 1))
     is_working = models.BooleanField(default=False)
@@ -84,6 +86,7 @@ class SchoolAdd(models.Model):
     school_state = models.CharField(null=True, blank=True, max_length=50)
     school_district = models.CharField(null=True, blank=True, max_length=50)
     school_city = models.CharField(null=True, blank=True, max_length=50)
+    school_country = models.CharField(null=True, blank=True, max_length=50)
     school_hostel = models.ForeignKey(HostelName, on_delete=models.PROTECT, blank=True, null=True)
 
     def __str__(self):
@@ -98,6 +101,7 @@ class HigherEducation(models.Model):
     user_college = models.CharField(max_length=100, blank=True, null=True)
     user_college_state = models.CharField(null=True, blank=True, max_length=50)
     user_college_city = models.CharField(null=True, blank=True, max_length=50)
+    user_college_country = models.CharField(null=True, blank=True, max_length=50)
 
     def __str__(self):
         return self.user_college

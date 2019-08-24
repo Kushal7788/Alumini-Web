@@ -60,7 +60,7 @@
                         <div class="form-holder">
                             <i class="zmdi zmdi-calendar"></i>
                             <input type="text" class="form-control datepicker-here" data-language='en'
-                                   data-date-format="dd - mm - yyyy" id="dp1" name="date_of_birth">
+                                   data-date-format="yyyy-mm-dd" id="dp1" name="date_of_birth">
                         </div>
                         <label for="dp1" generated="true" class="error"></label>
                     </div>
@@ -125,7 +125,7 @@
             <section>
                 <h3>School address</h3>
                 <div class="form-row">
-
+                    <!-- Street Address-->
                     <div class="form-col">
                         <label for="">
                             Street Address
@@ -137,28 +137,7 @@
                         </div>
                         <label for="school_street_address" generated="true" class="error"></label>
                     </div>
-                    <div class="form-col">
-                        <label for="">
-                            Landmark
-                        </label>
-                        <div class="form-holder">
-                            <i class="zmdi zmdi-pin"></i>
-                            <input type="text" class="form-control" name="school_landmark" id="school_landmark">
-                        </div>
-                        <label for="school_landmark" generated="true" class="error"></label>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-col">
-                        <label for="">
-                            Pincode
-                        </label>
-                        <div class="form-holder">
-                            <i class="zmdi zmdi-pin"></i>
-                            <input type="text" class="form-control" name="school_pincode" id="school_pincode">
-                        </div>
-                        <label for="school_pincode" generated="true" class="error"></label>
-                    </div>
+                    <!-- District-->
                     <div class="form-col">
                         <label for="">
                             District
@@ -169,29 +148,44 @@
                         </div>
                         <label for="school_district" generated="true" class="error"></label>
                     </div>
-                    <div class="form-col">
-                        <label for="">
-                            Taluka
-                        </label>
-                        <div class="form-holder">
-                            <i class="zmdi zmdi-home"></i>
-                            <input type="text" class="form-control" name="school_taluka" id="school_taluka">
-                        </div>
-                        <label for="school_taluka" generated="true" class="error"></label>
-                    </div>
-
                 </div>
                 <div class="form-row">
+                    <!-- City-->
                     <div class="form-col">
                         <label for="">
                             City
                         </label>
                         <div class="form-holder">
-                            <i class="zmdi zmdi-pin-drop"></i>
+                            <i class="zmdi zmdi-home"></i>
                             <input type="text" class="form-control" name="school_city" id="school_city">
                         </div>
                         <label for="school_city" generated="true" class="error"></label>
                     </div>
+                    <!-- State-->
+                    <div class="form-col">
+                        <label for="">
+                            State
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-home"></i>
+                            <input type="text" class="form-control" name="school_state" id="school_state">
+                        </div>
+                        <label for="school_state" generated="true" class="error"></label>
+                    </div>
+                    <!-- Country-->
+                    <div class="form-col">
+                        <label for="">
+                            Country
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-home"></i>
+                            <input type="text" class="form-control" name="school_country" id="school_country">
+                        </div>
+                        <label for="school_country" generated="true" class="error"></label>
+                    </div>
+                </div>
+                <div class="form-row">
+
                     <div class="form-col">
                         <label for="">
                             Hostel Name
@@ -230,23 +224,14 @@
                     </div>
                     <div class="form-col">
                         <label for="">
-                            Landmark
+                            District
                         </label>
                         <div class="form-holder">
                             <i class="zmdi zmdi-home"></i>
-                            <input type="text" class="form-control" name="current_landmark" id="current_landmark">
+                            <input type="text" class="form-control" name="current_district"
+                                   id="current_district">
                         </div>
-                        <label for="current_landmark" generated="true" class="error"></label>
-                    </div>
-                    <div class="form-col">
-                        <label for="">
-                            Pincode
-                        </label>
-                        <div class="form-holder">
-                            <i class="zmdi zmdi-pin"></i>
-                            <input type="text" class="form-control" name="current_pincode" id="current_pincode">
-                        </div>
-                        <label for="current_pincode" generated="true" class="error"></label>
+                        <label for="current_district" generated="true" class="error"></label>
                     </div>
                 </div>
 
@@ -287,10 +272,10 @@
                 </div>
                 <div class="form-row">
                     <div class="form-col">
-                        <input type="checkbox" name="option1" id="higher_edu"> Higher Education
+                        <input type="checkbox" name="higher_edu" id="higher_edu"> Higher Education
                     </div>
                     <div class="form-col">
-                        <input type="checkbox" name="option2" id="job"> Job <br>
+                        <input type="checkbox" name="job" id="job"> Job <br>
                     </div>
                 </div>
 
@@ -417,18 +402,6 @@
                     </div>
                     <div class="form-col">
                         <label for="">
-                            Work Experience
-                        </label>
-                        <div class="form-holder">
-                            <i class="zmdi zmdi-pin-drop"></i>
-                            <input type="text" class="form-control" name="work_experience" id="work_experience">
-                        </div>
-                        <label for="work_experience" generated="true" class="error"></label>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-col">
-                        <label for="">
                             City
                         </label>
                         <div class="form-holder">
@@ -438,6 +411,9 @@
                         </div>
                         <label for="work_city" generated="true" class="error"></label>
                     </div>
+                </div>
+                <div class="form-row">
+
                     <div class="form-col">
                         <label for="">
                             State
@@ -459,8 +435,38 @@
                         </div>
                         <label for="work_country" generated="true" class="error"></label>
                     </div>
+                    <div class="form-col" >
+                        <label for="">
+                            Present Job
+                        </label>
+                        <input type="checkbox" name="is_working" id="is_working"> Working <br>
+                    </div>
 
 
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Joining Date
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-calendar"></i>
+                            <input type="text" class="form-control datepicker-here" data-language='en'
+                                   data-date-format="yyyy-mm-dd" id="dp2" name="joining_date">
+                        </div>
+                        <label for="dp2" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            Resigning Date
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-calendar"></i>
+                            <input type="text" class="form-control datepicker-here" data-language='en'
+                                   data-date-format="yyyy-mm-dd" id="dp3" name="resigning_date">
+                        </div>
+                        <label for="dp3" generated="true" class="error"></label>
+                    </div>
                 </div>
 
             </section>
@@ -552,18 +558,7 @@
     </div>
 {% endblock %}
 {% block scripts %}
-    <script>
-        $(function () {
-            $("#click").click(function () {
-                let x = document.getElementById("dp1");
-                let new_val = $("#dp1").val().split(' - ');
-                let dateYear = parseInt(new_val[0]);
-                let dateMonth = parseInt(new_val[1]);
-                let dateDay = parseInt(new_val[2]);
-                let st = dateYear + "*" + dateMonth + "*" + dateDay;
-            });
-        });
-    </script>
+
     <script src="{% static 'register/js/jquery-3.3.1.min.js' %}"></script>
 
     <!-- JQUERY STEP -->
