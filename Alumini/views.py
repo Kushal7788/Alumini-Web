@@ -8,7 +8,7 @@ from django.template.loader import render_to_string
 from .form import *
 
 EMAIL_HOST = settings.EMAIL_HOST_USER
-# ADMIN_MAIL = settings.ADMIN_MAIL
+ADMIN_MAIL = settings.ADMIN_MAIL
 
 
 def home(request):
@@ -68,7 +68,7 @@ def contact(request):
                 'id': user_email,
                 'msg': msg,
             })
-            send_mail(mail_subject, message, EMAIL_HOST, [])
+            send_mail(mail_subject, message, EMAIL_HOST, [ADMIN_MAIL])
 
         else:
             # print(form.errors)

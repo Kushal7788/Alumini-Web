@@ -128,5 +128,9 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+DEFAULT_FROM_EMAIL = 'Epicups Team <kushal.007dum@gmail.com>'
+ADMIN_MAIL = 'kushal.17u197@viit.ac.in'
+EMAIL_HOST_USER = 'kushal.007dum@gmail.com'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
