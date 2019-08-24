@@ -77,9 +77,10 @@ $(function () {
 
         onStepChanged: function (event, currentIndex, priorIndex)
     {
+
         var con1 = document.getElementById('higher_edu').checked;
         var con2 = document.getElementById('job').checked;
-        if (currentIndex === 3 && priorIndex === 4)
+        if (currentIndex === 3 && priorIndex === 4 && !con1)
         {
             $(this).steps("previous");
             return;
@@ -88,7 +89,7 @@ $(function () {
         {
             form.steps("next");
         }
-        if (currentIndex === 4 && priorIndex === 5)
+        if (currentIndex === 4 && priorIndex === 5 && !con2)
         {
             $(this).steps("previous");
             return;
