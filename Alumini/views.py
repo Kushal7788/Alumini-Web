@@ -8,7 +8,7 @@ from django.template.loader import render_to_string
 from .form import *
 
 EMAIL_HOST = settings.EMAIL_HOST_USER
-ADMIN_MAIL = settings.ADMIN_MAIL
+# ADMIN_MAIL = settings.ADMIN_MAIL
 
 
 def home(request):
@@ -35,11 +35,11 @@ def home(request):
 
 
 def resetPassword(request):
-    return render(request, "LoginTemplates/reset-password.html")
+    return render(request, 'LoginTemplates/reset-password.html', {})
 
 
 def resetPasswordNew(request):
-    return render(request, 'LoginTemplates/new-password.html')
+    return render(request, 'LoginTemplates/new-password.html', {})
 
 
 def userLogout(request):
@@ -68,7 +68,7 @@ def contact(request):
                 'id': user_email,
                 'msg': msg,
             })
-            send_mail(mail_subject, message, EMAIL_HOST, [ADMIN_MAIL])
+            send_mail(mail_subject, message, EMAIL_HOST, [])
 
         else:
             # print(form.errors)
