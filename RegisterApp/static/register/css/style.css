@@ -86,7 +86,7 @@ textarea {
 
 }
 .steps ul:after {
-  content: "/ 5";
+  content: "/ 7";
   font-size: 15px;
   color: #ccc;
 
@@ -117,6 +117,18 @@ textarea {
   content: "5";
 }
 .steps ul.step-5:after {
+  left: 31px;
+}
+.steps ul.step-6:before {
+  content: "6";
+}
+.steps ul.step-6:after {
+  left: 31px;
+}
+.steps ul.step-7:before {
+  content: "7";
+}
+.steps ul.step-7:after {
   left: 31px;
 }
 

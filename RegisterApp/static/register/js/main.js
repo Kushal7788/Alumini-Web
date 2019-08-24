@@ -5,7 +5,7 @@ $(function () {
         bodyTag: "section",
         transitionEffect: "fade",
         enableAllSteps: true,
-        transitionEffectSpeed: 300,
+        transitionEffectSpeed: 100,
         labels: {
             next: "Next",
             previous: "Back"
@@ -40,6 +40,20 @@ $(function () {
                     $(".steps ul").removeClass("step-5");
                     $(".actions ul").removeClass("mt-7");
                 }
+                if (newIndex === 5) {
+                    $(".steps ul").addClass("step-6");
+                    $(".actions ul").addClass("mt-7");
+                } else {
+                    $(".steps ul").removeClass("step-6");
+                    $(".actions ul").removeClass("mt-7");
+                }
+                if (newIndex === 6) {
+                    $(".steps ul").addClass("step-7");
+                    $(".actions ul").addClass("mt-7");
+                } else {
+                    $(".steps ul").removeClass("step-7");
+                    $(".actions ul").removeClass("mt-7");
+                }
 
             }
 
@@ -65,23 +79,27 @@ $(function () {
     {
         var con1 = document.getElementById('higher_edu').checked;
         var con2 = document.getElementById('job').checked;
+        if (currentIndex === 3 && priorIndex === 4)
+        {
+            $(this).steps("previous");
+            return;
+        }
         if (currentIndex === 3 && !con1)
         {
             form.steps("next");
+        }
+        if (currentIndex === 4 && priorIndex === 5)
+        {
+            $(this).steps("previous");
+            return;
         }
         if (currentIndex === 4 && !con2)
         {
             form.steps("next");
         }
         // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
-        if (currentIndex === 3 && priorIndex === 4)
-        {
-            form.steps("previous");
-        }
-        if (currentIndex === 4 && priorIndex === 5)
-        {
-            form.steps("previous");
-        }
+
+
     },
 
         onFinishing: function (event, currentIndex) {

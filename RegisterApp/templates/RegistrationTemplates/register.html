@@ -2,573 +2,571 @@
 {% load static %}
 {% block title %}Register{% endblock %}
 {% block css %}
-        <!-- MATERIAL DESIGN ICONIC FONT -->
-		<link rel="stylesheet" href="{% static 'register/fonts/material-design-iconic-font/css/material-design-iconic-font.css' %}">
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet"
+          href="{% static 'register/fonts/material-design-iconic-font/css/material-design-iconic-font.css' %}">
 
-		<!-- DATE-PICKER -->
-		<link rel="stylesheet" href="{% static 'register/vendor/date-picker/css/datepicker.min.css' %}">
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="{% static 'register/vendor/date-picker/css/datepicker.min.css' %}">
 
-		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="{% static 'register/css/style.css' %}">
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="{% static 'register/css/style.css' %}">
 {% endblock %}
 {% block body %}
-		<div class="wrapper">
-            <form action="{% url 'submit-form' %}" method="post" id="wizard">
-        		<!-- SECTION 1 -->
-                {% csrf_token %}
-                <h4></h4>
-                <section>
-                    <h3>Basic Information</h3>
-                	<div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                First Name
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="first_name" id="first_name">
-                            </div>
-                            <label for="first_name" generated="true" class="error"></label>
+    <div class="wrapper">
+        <form action="{% url 'submit-form' %}" method="post" id="wizard">
+            <!-- SECTION 1 -->
+            {% csrf_token %}
+            <h4></h4>
+            <section>
+                <h3>Basic Information</h3>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            First Name
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="first_name" id="first_name">
                         </div>
-                        <div class="form-col">
-                            <label for="">
-                                Middle Name
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="middle_name" id="middle_name">
-                            </div>
-                            <label for="middle_name" generated="true" class="error"></label>
-                        </div>
-                        <div class="form-col">
-                            <label for="">
-                                Last Name
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="last_name" id="last_name">
-                            </div>
-                            <label for="last_name" generated="true" class="error"></label>
-                        </div>
+                        <label for="first_name" generated="true" class="error"></label>
                     </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Date of Birth
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-calendar"></i>
-                                <input type="text" class="form-control datepicker-here" data-language='en' data-date-format="dd - mm - yyyy" id="dp1" name="date_of_birth">
-                            </div>
-                             <label for="dp1" generated="true" class="error"></label>
+                    <div class="form-col">
+                        <label for="">
+                            Middle Name
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="middle_name" id="middle_name">
                         </div>
-                        <div class="form-col">
-                            <label for="">
-                                Passout-Batch
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <select name="passout_batch" id="passout_batch" class="form-control" >
-                                    {% for pass in passout %}
-                                        <option value="{{pass.pk}}" class="option">{{ pass.title }}</option>
-                                    {% endfor %}
-                                </select>
-                                <i class="zmdi zmdi-chevron-down"></i>
-                            </div>
-                            <label for="passout_batch" generated="true" class="error"></label>
-                        </div>
-                        <div class="form-col">
-                            <label for="">
-                                Gender
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <select name="gender" id="Gender" class="form-control" >
-                                    {% for gen in gender %}
-                                        <option value="{{gen.pk}}" class="option">{{gen.title}}</option>
-                                    {% endfor %}
-                                </select>
-                                <i class="zmdi zmdi-chevron-down"></i>
-                            </div>
-                            <label for="Gender" generated="true" class="error"></label>
-                        </div>
+                        <label for="middle_name" generated="true" class="error"></label>
                     </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Email ID/Username
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-email"></i>
-                                <input type="text" class="form-control" name="email_username" id="email_username">
-                            </div>
-                            <label for="email_username" generated="true" class="error"></label>
+                    <div class="form-col">
+                        <label for="">
+                            Last Name
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="last_name" id="last_name">
                         </div>
-                        <div class="form-col">
-                            <label for="">
-                                Phone Number
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-smartphone-android"></i>
-                                <input type="text" class="form-control" name="phone_number" id="phone_number">
-                            </div>
-                            <label for="phone_number" generated="true" class="error"></label>
-                        </div>
-
+                        <label for="last_name" generated="true" class="error"></label>
                     </div>
-                </section>
-                
-				<!-- SECTION 2 -->
-                <h4></h4>
-                <section>
-                	<h3>School address</h3>
-                    <div class="form-row">
-                        
-                        <div class="form-col">
-                            <label for="">
-                                Street Address
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-pin"></i>
-                                <input type="text" class="form-control" name="school_street_address" id="school_street_address">
-                            </div>
-                            <label for="school_street_address" generated="true" class="error"></label>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Date of Birth
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-calendar"></i>
+                            <input type="text" class="form-control datepicker-here" data-language='en'
+                                   data-date-format="dd - mm - yyyy" id="dp1" name="date_of_birth">
                         </div>
-                        <div class="form-col">
-                            <label for="">
-                                Landmark
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-pin"></i>
-                                <input type="text" class="form-control" name="school_landmark" id="school_landmark">
-                            </div>
-                            <label for="school_landmark" generated="true" class="error"></label>
-                        </div>
+                        <label for="dp1" generated="true" class="error"></label>
                     </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Pincode
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-pin"></i>
-                                <input type="text" class="form-control" name="school_pincode" id="school_pincode">
-                            </div>
-                            <label for="school_pincode" generated="true" class="error"></label>
+                    <div class="form-col">
+                        <label for="">
+                            Passout-Batch
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <select name="passout_batch" id="passout_batch" class="form-control">
+                                {% for pass in passout %}
+                                    <option value="{{ pass.pk }}" class="option">{{ pass.title }}</option>
+                                {% endfor %}
+                            </select>
+                            <i class="zmdi zmdi-chevron-down"></i>
                         </div>
-                        <div class="form-col">
-                            <label for="">
-                                District
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-home"></i>
-                                <input type="text" class="form-control" name="school_district" id="school_district">
-                            </div>
-                            <label for="school_district" generated="true" class="error"></label>
-                        </div>
-                         <div class="form-col">
-                            <label for="">
-                                Taluka
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-home"></i>
-                                <input type="text" class="form-control" name="school_taluka" id="school_taluka">
-                            </div>
-                             <label for="school_taluka" generated="true" class="error"></label>
-                        </div>
-                        
+                        <label for="passout_batch" generated="true" class="error"></label>
                     </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                City
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-pin-drop"></i>
-                                <input type="text" class="form-control" name="school_city" id="school_city">
-                            </div>
-                           <label for="school_city" generated="true" class="error"></label>
-                        </div>    
-                        <div class="form-col">
-                            <label for="">
-                                Hostel Name
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <select name="hostel" id="hostel" class="form-control">
-                                    {% for hostel in hostels %}
-                                        <option value="{{ hostel.pk }}" class="option">{{ hostel.title }}</option>
-                                    {% endfor %}
-                                </select>
-                                <i class="zmdi zmdi-chevron-down"></i>
-                            </div>
-                            <label for="hostel" generated="true" class="error"></label>
+                    <div class="form-col">
+                        <label for="">
+                            Gender
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <select name="gender" id="Gender" class="form-control">
+                                {% for gen in gender %}
+                                    <option value="{{ gen.pk }}" class="option">{{ gen.title }}</option>
+                                {% endfor %}
+                            </select>
+                            <i class="zmdi zmdi-chevron-down"></i>
                         </div>
+                        <label for="Gender" generated="true" class="error"></label>
                     </div>
-                    
-                </section>
-
-                <!-- SECTION 3 -->
-                <h4></h4>
-                <section>
-                    <h3 style="margin-bottom: 37px;">Current Address</h3>
-                    <div class="form-row">
-                        
-                        <div class="form-col">
-                            <label for="">
-                                Street Address
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-home"></i>
-                                <input type="text" class="form-control" name="current_street_address" id="current_street_address">
-                            </div>
-                            <label for="current_street_address" generated="true" class="error"></label>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Email ID/Username
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-email"></i>
+                            <input type="text" class="form-control" name="email_username" id="email_username">
                         </div>
-                         <div class="form-col">
-                            <label for="">
-                                Landmark
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-home"></i>
-                                <input type="text" class="form-control" name="current_landmark" id="current_landmark">
-                            </div>
-                             <label for="current_landmark" generated="true" class="error"></label>
-                        </div>
-                        <div class="form-col">
-                            <label for="">
-                                Pincode
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-pin"></i>
-                                <input type="text" class="form-control" name="current_pincode" id="current_pincode" >
-                            </div>
-                            <label for="current_pincode" generated="true" class="error"></label>
-                        </div>
+                        <label for="email_username" generated="true" class="error"></label>
                     </div>
-                        <div class="form-col">
-                            <label for="">
-                                Landmark
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-home"></i>
-                                <input type="text" class="form-control" name="current_landmark" id="current_landmark">
-                            </div>
-                             <label for="current_landmark" generated="true" class="error"></label>
+                    <div class="form-col">
+                        <label for="">
+                            Phone Number
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-smartphone-android"></i>
+                            <input type="text" class="form-control" name="phone_number" id="phone_number">
                         </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                City
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="current_city" id="current_city" disabled>
-
-                            </div>
-                            <label for="current_city" generated="true" class="error"></label>
-                        </div>
-                        <div class="form-col">
-                            <label for="">
-                                State
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>                             
-                                <input type="text" class="form-control" name="current_state" id="current_state" disabled>
-                            </div>
-                            <label for="current_state" generated="true" class="error"></label>
-                        </div>
-                        <div class="form-col">
-                            <label for="">
-                                Country
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>                             
-                                <input type="text" class="form-control" name="current_country" id="current_country" disabled>
-
-                            </div>
-                            <label for="current_country" generated="true" class="error"></label>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <input type="checkbox" name="option1" id="higher_edu"> Higher Education
-                        </div>
-                        <div class="form-col">
-                            <input type="checkbox" name="option2" id="job"> Job <br>
-                        </div>
-                    </div>
-                    
-                </section>
-
-                <!-- SECTION 4 -->
-                 <h4></h4>
-                 <section>
-                    <h3 style="margin-bottom: 37px;">Education</h3>
-                    <div class="form-row">
-
-                       <div class="form-col">
-                            <label for="">
-                                Higher Studies
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <select name="higher_studies" id="higher_studies" class="form-control">
-                                    {% for higher_study in higher_studies %}
-                                        <option value="{{ higher_study.pk }}" class="option">{{ higher_study.title }}</option>
-                                    {% endfor %}
-                                </select>
-                                <i class="zmdi zmdi-chevron-down"></i>
-                            </div>
-                           <label for="higher_studies" generated="true" class="error"></label>
-                        </div>
-                       <div class="form-col">
-                            <label for="">
-                                Course Taken
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <select name="course_taken" id="course_taken" class="form-control">
-                                    {% for course in courses %}
-                                        <option value="{{ course.pk }}" class="option">{{ course.title }}</option>
-                                    {% endfor %}
-                                </select>
-                                <i class="zmdi zmdi-chevron-down"></i>
-                            </div>
-                           <label for="course_taken" generated="true" class="error"></label>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                College Name
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-pin-drop"></i>
-                                <input type="text" class="form-control" name="college_name" id="college_name">
-                            </div>
-                            <label for="college_name" generated="true" class="error"></label>
-                        </div>
-                    </div>
-                   <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                City
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="college_city" id="college_city">
-
-                            </div>
-                            <label for="college_city" generated="true" class="error"></label>
-                        </div>
-                        <div class="form-col">
-                            <label for="">
-                                State
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="college_state" id="college_state" disabled>
-                            </div>
-                            <label for="college_state" generated="true" class="error"></label>
-                        </div>
-                        <div class="form-col">
-                            <label for="">
-                                Country
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="college_country" id="college_country" disabled>
-
-                            </div>
-                            <label for="college_country" generated="true" class="error"></label>
-                        </div>
-
-
+                        <label for="phone_number" generated="true" class="error"></label>
                     </div>
 
-                </section>
+                </div>
+            </section>
 
+            <!-- SECTION 2 -->
+            <h4></h4>
+            <section>
+                <h3>School address</h3>
+                <div class="form-row">
 
-                <!-- SECTION 5 -->
-                 <h4></h4>
-                 <section>
-                    <h3 style="margin-bottom: 37px;">Job Description</h3>
-
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Company
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-pin-drop"></i>
-                                <input type="text" class="form-control" name="company_name" id="company_name">
-                            </div>
-                            <label for="company_name" generated="true" class="error"></label>
+                    <div class="form-col">
+                        <label for="">
+                            Street Address
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-pin"></i>
+                            <input type="text" class="form-control" name="school_street_address"
+                                   id="school_street_address">
                         </div>
+                        <label for="school_street_address" generated="true" class="error"></label>
                     </div>
-                     <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Position
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-pin-drop"></i>
-                                <input type="text" class="form-control" name="position" id="position">
-                            </div>
-                            <label for="position" generated="true" class="error"></label>
+                    <div class="form-col">
+                        <label for="">
+                            Landmark
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-pin"></i>
+                            <input type="text" class="form-control" name="school_landmark" id="school_landmark">
                         </div>
-                         <div class="form-col">
-                            <label for="">
-                                Work Experience
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-pin-drop"></i>
-                                <input type="text" class="form-control" name="work_experience" id="work_experience">
-                            </div>
-                             <label for="work_experience" generated="true" class="error"></label>
-                        </div>
+                        <label for="school_landmark" generated="true" class="error"></label>
                     </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                City
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="work_city" id="work_city">
-
-                            </div>
-                            <label for="work_city" generated="true" class="error"></label>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Pincode
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-pin"></i>
+                            <input type="text" class="form-control" name="school_pincode" id="school_pincode">
                         </div>
-                        <div class="form-col">
-                            <label for="">
-                                State
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="work_state" id="work_state" disabled>
-                            </div>
-                            <label for="work_state" generated="true" class="error"></label>
+                        <label for="school_pincode" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            District
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-home"></i>
+                            <input type="text" class="form-control" name="school_district" id="school_district">
                         </div>
-                        <div class="form-col">
-                            <label for="">
-                                Country
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="text" class="form-control" name="work_country" id="work_country" disabled>
-
-                            </div>
-                            <label for="work_country" generated="true" class="error"></label>
+                        <label for="school_district" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            Taluka
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-home"></i>
+                            <input type="text" class="form-control" name="school_taluka" id="school_taluka">
                         </div>
-
-
+                        <label for="school_taluka" generated="true" class="error"></label>
                     </div>
 
-                </section>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            City
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-pin-drop"></i>
+                            <input type="text" class="form-control" name="school_city" id="school_city">
+                        </div>
+                        <label for="school_city" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            Hostel Name
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <select name="hostel" id="hostel" class="form-control">
+                                {% for hostel in hostels %}
+                                    <option value="{{ hostel.pk }}" class="option">{{ hostel.title }}</option>
+                                {% endfor %}
+                            </select>
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </div>
+                        <label for="hostel" generated="true" class="error"></label>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION 3 -->
+            <h4></h4>
+            <section>
+                <h3 style="margin-bottom: 37px;">Current Address</h3>
+                <div class="form-row">
+
+                    <div class="form-col">
+                        <label for="">
+                            Street Address
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-home"></i>
+                            <input type="text" class="form-control" name="current_street_address"
+                                   id="current_street_address">
+                        </div>
+                        <label for="current_street_address" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            Landmark
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-home"></i>
+                            <input type="text" class="form-control" name="current_landmark" id="current_landmark">
+                        </div>
+                        <label for="current_landmark" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            Pincode
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-pin"></i>
+                            <input type="text" class="form-control" name="current_pincode" id="current_pincode">
+                        </div>
+                        <label for="current_pincode" generated="true" class="error"></label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            City
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="current_city" id="current_city" disabled>
+
+                        </div>
+                        <label for="current_city" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            State
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="current_state" id="current_state" disabled>
+                        </div>
+                        <label for="current_state" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            Country
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="current_country" id="current_country"
+                                   disabled>
+
+                        </div>
+                        <label for="current_country" generated="true" class="error"></label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <input type="checkbox" name="option1" id="higher_edu"> Higher Education
+                    </div>
+                    <div class="form-col">
+                        <input type="checkbox" name="option2" id="job"> Job <br>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION 4 -->
+            <h4></h4>
+            <section>
+                <h3 style="margin-bottom: 37px;">Education</h3>
+                <div class="form-row">
+
+                    <div class="form-col">
+                        <label for="">
+                            Higher Studies
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <select name="higher_studies" id="higher_studies" class="form-control">
+                                {% for higher_study in higher_studies %}
+                                    <option value="{{ higher_study.pk }}"
+                                            class="option">{{ higher_study.title }}</option>
+                                {% endfor %}
+                            </select>
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </div>
+                        <label for="higher_studies" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            Course Taken
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <select name="course_taken" id="course_taken" class="form-control">
+                                {% for course in courses %}
+                                    <option value="{{ course.pk }}" class="option">{{ course.title }}</option>
+                                {% endfor %}
+                            </select>
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </div>
+                        <label for="course_taken" generated="true" class="error"></label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            College Name
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-pin-drop"></i>
+                            <input type="text" class="form-control" name="college_name" id="college_name">
+                        </div>
+                        <label for="college_name" generated="true" class="error"></label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            City
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="college_city" id="college_city">
+
+                        </div>
+                        <label for="college_city" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            State
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="college_state" id="college_state" disabled>
+                        </div>
+                        <label for="college_state" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            Country
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="college_country" id="college_country"
+                                   disabled>
+
+                        </div>
+                        <label for="college_country" generated="true" class="error"></label>
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- SECTION 5 -->
+            <h4></h4>
+            <section>
+                <h3 style="margin-bottom: 37px;">Job Description</h3>
+
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Company
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-pin-drop"></i>
+                            <input type="text" class="form-control" name="company_name" id="company_name">
+                        </div>
+                        <label for="company_name" generated="true" class="error"></label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Position
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-pin-drop"></i>
+                            <input type="text" class="form-control" name="position" id="position">
+                        </div>
+                        <label for="position" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            Work Experience
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-pin-drop"></i>
+                            <input type="text" class="form-control" name="work_experience" id="work_experience">
+                        </div>
+                        <label for="work_experience" generated="true" class="error"></label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            City
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="work_city" id="work_city">
+
+                        </div>
+                        <label for="work_city" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            State
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="work_state" id="work_state" disabled>
+                        </div>
+                        <label for="work_state" generated="true" class="error"></label>
+                    </div>
+                    <div class="form-col">
+                        <label for="">
+                            Country
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="text" class="form-control" name="work_country" id="work_country" disabled>
+
+                        </div>
+                        <label for="work_country" generated="true" class="error"></label>
+                    </div>
+
+
+                </div>
+
+            </section>
 
             <!-- SECTION 6 -->
-                 <h4></h4>
-                 <section>
-                     <h3 style="margin-bottom: 37px;">Social Profile</h3>
-                     <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Facebook link
-                            </label>
-                            <div class="form-holder">
-                                <input type="text" class="form-control" name="facebook_link" id="facebook_link">
-                            </div>
-                            <label for="facebook_link" generated="true" class="error"></label>
+            <h4></h4>
+            <section>
+                <h3 style="margin-bottom: 37px;">Social Profile</h3>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Facebook link
+                        </label>
+                        <div class="form-holder">
+                            <input type="text" class="form-control" name="facebook_link" id="facebook_link">
                         </div>
+                        <label for="facebook_link" generated="true" class="error"></label>
                     </div>
-                     <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Instagram link
-                            </label>
-                            <div class="form-holder">
-                                <input type="text" class="form-control" name="insta_link" id="insta_link">
-                            </div>
-                            <label for="insta_link" generated="true" class="error"></label>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Instagram link
+                        </label>
+                        <div class="form-holder">
+                            <input type="text" class="form-control" name="insta_link" id="insta_link">
                         </div>
+                        <label for="insta_link" generated="true" class="error"></label>
                     </div>
-                     <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Twitter Link
-                            </label>
-                            <div class="form-holder">
-                                <input type="text" class="form-control" name="twitter_link" id="twitter_link">
-                            </div>
-                            <label for="twitter_link" generated="true" class="error"></label>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Twitter Link
+                        </label>
+                        <div class="form-holder">
+                            <input type="text" class="form-control" name="twitter_link" id="twitter_link">
                         </div>
+                        <label for="twitter_link" generated="true" class="error"></label>
                     </div>
-                </section>
+                </div>
+            </section>
 
             <!-- SECTION 7 -->
-                 <h4></h4>
-                 <section>
-                     <h3 style="margin-bottom: 37px;">Final Step</h3>
-                     <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Profile Photo
-                            </label>
-                            <div class="form-holder">
-                                <img src="{% static 'register/images/profile.jpg' %}" width="100" height="100">
-                            </div>
+            <h4></h4>
+            <section>
+                <h3 style="margin-bottom: 37px;">Final Step</h3>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Profile Photo
+                        </label>
+                        <div class="form-holder">
+                            <img src="{% static 'register/images/doctor.jpg' %}" width="100" height="100">
                         </div>
                     </div>
-                     <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Password
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="password" class="form-control" name="password" id="password">
-                            </div>
-                            <label for="password" generated="true" class="error"></label>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Password
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="password" class="form-control" name="password" id="password">
                         </div>
+                        <label for="password" generated="true" class="error"></label>
                     </div>
-                     <div class="form-row">
-                        <div class="form-col">
-                            <label for="">
-                                Confirm Password
-                            </label>
-                            <div class="form-holder">
-                                <i class="zmdi zmdi-account-o"></i>
-                                <input type="password" class="form-control" name="conf_password" id="conf_password">
-                            </div>
-                            <label for="conf_password" generated="true" class="error"></label>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="">
+                            Confirm Password
+                        </label>
+                        <div class="form-holder">
+                            <i class="zmdi zmdi-account-o"></i>
+                            <input type="password" class="form-control" name="conf_password" id="conf_password">
                         </div>
+                        <label for="conf_password" generated="true" class="error"></label>
                     </div>
-                </section>
-            
+                </div>
+            </section>
 
-            </form>
-		</div>
+
+        </form>
+    </div>
 {% endblock %}
-    {% block scripts %}
-        <script>
-        $(function() {
-            $( "#click" ).click(function() {
+{% block scripts %}
+    <script>
+        $(function () {
+            $("#click").click(function () {
                 let x = document.getElementById("dp1");
                 let new_val = $("#dp1").val().split(' - ');
-                 let dateYear = parseInt(new_val[0]);
-                 let dateMonth = parseInt(new_val[1]);
-                 let dateDay = parseInt(new_val[2]);
-                let st = dateYear+ "*" + dateMonth+ "*" + dateDay;
+                let dateYear = parseInt(new_val[0]);
+                let dateMonth = parseInt(new_val[1]);
+                let dateDay = parseInt(new_val[2]);
+                let st = dateYear + "*" + dateMonth + "*" + dateDay;
             });
         });
-        </script>
+    </script>
     <script src="{% static 'register/js/jquery-3.3.1.min.js' %}"></script>
 
-		<!-- JQUERY STEP -->
+    <!-- JQUERY STEP -->
     <script src="{% static 'register/js/jquery.steps.js' %}"></script>
 
-		<!-- DATE-PICKER -->
+    <!-- DATE-PICKER -->
     <script src="{% static 'register/vendor/date-picker/js/datepicker.js' %}"></script>
     <script src="{% static 'register/vendor/date-picker/js/datepicker.en.js' %}"></script>
 
@@ -577,7 +575,7 @@
 
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTfgYD-w24vF-Y5tf4uQGojlPGhaT2AsI&libraries=places&callback=initAutocomplete"
-        async defer></script>
+            async defer></script>
 
-    {% endblock %}
+{% endblock %}
 
