@@ -61,6 +61,29 @@ $(function () {
             return form.valid();
         },
 
+        onStepChanged: function (event, currentIndex, priorIndex)
+    {
+        var con1 = document.getElementById('higher_edu').checked;
+        var con2 = document.getElementById('job').checked;
+        if (currentIndex === 3 && !con1)
+        {
+            form.steps("next");
+        }
+        if (currentIndex === 4 && !con2)
+        {
+            form.steps("next");
+        }
+        // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+        if (currentIndex === 3 && priorIndex === 4)
+        {
+            form.steps("previous");
+        }
+        if (currentIndex === 4 && priorIndex === 5)
+        {
+            form.steps("previous");
+        }
+    },
+
         onFinishing: function (event, currentIndex) {
             alert("Hello");
             $('#wizard').submit();
