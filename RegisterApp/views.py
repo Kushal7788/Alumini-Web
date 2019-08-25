@@ -70,6 +70,7 @@ def submit_form(request):
             high_edu.user_college_city = request.POST.get('college_city')
             high_edu.user_college_state = request.POST.get('college_state')
             high_edu.user_college_country = request.POST.get('college_country')
+            print(high_edu.user_college_state,high_edu.user_college_country,request.POST.get('college_state'),request.POST.get('college_country'))
             high_edu.coll_user = user
 
         # Step 5 Data
@@ -98,8 +99,10 @@ def submit_form(request):
         user.set_password(request.POST.get('password'))
         user.save()
         school.save()
-        jobs.save()
-        high_edu.save()
+        if 'jobs' in request.POST:
+            jobs.save()
+        if ('higher_edu' in request.POST):
+            high_edu.save()
         add.save()
 
         return redirect('home')

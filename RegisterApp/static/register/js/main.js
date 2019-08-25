@@ -1,8 +1,9 @@
 let form = $("#wizard").show();
 
-$("#is_working").change(function() {
+$("#is_working").click(function() {
     alert("h1");
-    if(this.checked) {
+    x = document.getElementById('is_checked')
+    if(x.checked) {
         $("#dp3").prop("disabled", true);
 
     }
