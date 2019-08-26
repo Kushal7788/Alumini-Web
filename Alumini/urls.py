@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^register/', include('RegisterApp.urls'), name='register'),
     url(r'^login/profile$', views.profileView, name='profile'),
     url('^', include('django.contrib.auth.urls')),
+    url(r'^admin_privilege/', include('Adminpanel.urls'), name='adminpanel')
     # url(r'^reset-password/$', views.resetPassword, name='reset-password')
 
 ]

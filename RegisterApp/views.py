@@ -1,21 +1,10 @@
 from django.shortcuts import render, redirect
 from RegisterApp.models import MyUser, GenderField, PassoutBatch, HostelName, HigherStudies, CourseName, SchoolAdd, \
     UserAddr, HigherEducation, JobDescription
-from django.core.exceptions import PermissionDenied
-
+from .decorators import user_is_logged
 
 def login(request):
     return render(request, 'LoginTemplates/Login.html', {})
-
-
-def user_is_logged(function):
-    def wrap(request, *args, **kwargs):
-        user = request.user
-        if user.is_authenticated:
-            raise PermissionDenied
-        else:
-            return function(request, *args, **kwargs)
-    return wrap
 
 
 @user_is_logged

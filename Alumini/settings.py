@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 
 INSTALLED_APPS = [
     'Alumini',
+    'Adminpanel.apps.AdminpanelConfig',
     'RegisterApp.apps.RegisterappConfig',
     'django.contrib.admin',
     'django.contrib.auth',

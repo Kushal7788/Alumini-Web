@@ -85,3 +85,5 @@ def profileView(request):
         'education': high_edu,
     }
     return render(request, 'ProfileTemplates/profile.html', my_profile)
+
+
