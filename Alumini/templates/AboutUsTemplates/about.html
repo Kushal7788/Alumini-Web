@@ -4,8 +4,12 @@
     <link rel="stylesheet" type="text/css" href="{% static 'about/css/about.css' %}"/>
 {% endblock %}
 {% block body %}
-<div class="about-us-text">
+
+<br><br><br><br>
+<div class="container reset-password" style="max-width: 100vw">
+<div class="col-sm-6 container-center">
     <h1>About Us</h1>
+    <br><br>
 {% for para in data %}
 
     <h4>{{para.para1}}</h4><br><br>
@@ -13,5 +17,6 @@
     <h4>{{para.para3}}</h4><br><br>
 {% endfor %}
 </div>
+    </div>
 {% endblock %}
 
