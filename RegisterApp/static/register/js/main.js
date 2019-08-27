@@ -1,24 +1,26 @@
 let form = $("#wizard").show();
 
-$("#is_working").click(function() {
-    alert("h1");
-    x = document.getElementById('is_checked')
-    if(x.checked) {
-        $("#dp3").prop("disabled", true);
 
-    }
-    else
-    {
-        $("#dp3").prop("disabled", false);
-    }
-});
 $(function () {
+    /*$("#is_working").click(function () {
+
+        alert("h1");
+        x = document.getElementById('is_checked')
+        if (x.checked) {
+            $("#dp3").prop("disabled", true);
+
+        } else {
+            $("#dp3").prop("disabled", false);
+        }
+    });*/
+
+
     $("#wizard").steps({
         headerTag: "h4",
         bodyTag: "section",
         transitionEffect: "fade",
         enableAllSteps: true,
-        transitionEffectSpeed: 100,
+        transitionEffectSpeed: 1,
         labels: {
             next: "Next",
             previous: "Back"
@@ -88,33 +90,28 @@ $(function () {
             return form.valid();
         },
 
-        onStepChanged: function (event, currentIndex, priorIndex)
-    {
+        onStepChanged: function (event, currentIndex, priorIndex) {
 
-        var con1 = document.getElementById('higher_edu').checked;
-        var con2 = document.getElementById('job').checked;
-        if (currentIndex === 3 && priorIndex === 4 && !con1)
-        {
-            $(this).steps("previous");
-            return;
-        }
-        if (currentIndex === 3 && !con1)
-        {
-            form.steps("next");
-        }
-        if (currentIndex === 4 && priorIndex === 5 && !con2)
-        {
-            $(this).steps("previous");
-            return;
-        }
-        if (currentIndex === 4 && !con2)
-        {
-            form.steps("next");
-        }
-        // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+            var con1 = document.getElementById('higher_edu').checked;
+            var con2 = document.getElementById('job').checked;
+            if (currentIndex === 3 && priorIndex === 4 && !con1) {
+                $(this).steps("previous");
+                return;
+            }
+            if (currentIndex === 3 && !con1) {
+                form.steps("next");
+            }
+            if (currentIndex === 4 && priorIndex === 5 && !con2) {
+                $(this).steps("previous");
+                return;
+            }
+            if (currentIndex === 4 && !con2) {
+                form.steps("next");
+            }
+            // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
 
 
-    },
+        },
 
         onFinishing: function (event, currentIndex) {
             alert("Hello");

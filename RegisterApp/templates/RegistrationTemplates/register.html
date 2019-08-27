@@ -242,7 +242,7 @@
                         </label>
                         <div class="form-holder">
                             <i class="zmdi zmdi-account-o"></i>
-                            <input type="text" class="form-control" name="current_city" id="current_city" >
+                            <input type="text" class="form-control" name="current_city" id="current_city">
 
                         </div>
                         <label for="current_city" generated="true" class="error"></label>
@@ -253,7 +253,7 @@
                         </label>
                         <div class="form-holder">
                             <i class="zmdi zmdi-account-o"></i>
-                            <input type="text" class="form-control" name="current_state" id="current_state" >
+                            <input type="text" class="form-control" name="current_state" id="current_state">
                         </div>
                         <label for="current_state" generated="true" class="error"></label>
                     </div>
@@ -264,7 +264,7 @@
                         <div class="form-holder">
                             <i class="zmdi zmdi-account-o"></i>
                             <input type="text" class="form-control" name="current_country" id="current_country"
-                                   >
+                            >
 
                         </div>
                         <label for="current_country" generated="true" class="error"></label>
@@ -349,7 +349,7 @@
                         </label>
                         <div class="form-holder">
                             <i class="zmdi zmdi-account-o"></i>
-                            <input type="text" class="form-control" name="college_state" id="college_state" >
+                            <input type="text" class="form-control" name="college_state" id="college_state">
                         </div>
                         <label for="college_state" generated="true" class="error"></label>
                     </div>
@@ -360,7 +360,7 @@
                         <div class="form-holder">
                             <i class="zmdi zmdi-account-o"></i>
                             <input type="text" class="form-control" name="college_country" id="college_country"
-                                   >
+                            >
 
                         </div>
                         <label for="college_country" generated="true" class="error"></label>
@@ -420,7 +420,7 @@
                         </label>
                         <div class="form-holder">
                             <i class="zmdi zmdi-account-o"></i>
-                            <input type="text" class="form-control" name="work_state" id="work_state" >
+                            <input type="text" class="form-control" name="work_state" id="work_state">
                         </div>
                         <label for="work_state" generated="true" class="error"></label>
                     </div>
@@ -430,16 +430,16 @@
                         </label>
                         <div class="form-holder">
                             <i class="zmdi zmdi-account-o"></i>
-                            <input type="text" class="form-control" name="work_country" id="work_country" >
+                            <input type="text" class="form-control" name="work_country" id="work_country">
 
                         </div>
                         <label for="work_country" generated="true" class="error"></label>
                     </div>
-                    <div class="form-col" >
+                    <div class="form-col">
                         <label for="">
                             Present Job
                         </label>
-                        <input type="checkbox" name="is_working" id="is_working"> Working <br>
+                        <input type="checkbox" name="is_working" id="is_working" onclick="check()"> Working <br>
                     </div>
 
 
@@ -481,7 +481,7 @@
                             Facebook link
                         </label>
                         <div class="form-holder">
-                           <i class="zmdi zmdi-facebook-box"></i>
+                            <i class="zmdi zmdi-facebook-box"></i>
                             <input type="text" class="form-control" name="facebook_link" id="facebook_link">
                         </div>
                         <label for="facebook_link" generated="true" class="error"></label>
@@ -574,6 +574,16 @@
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTfgYD-w24vF-Y5tf4uQGojlPGhaT2AsI&libraries=places&callback=initAutocomplete"
             async defer></script>
+    <script>
+        function check() {
+            var chkBox = document.getElementById('is_working');
+            if (chkBox.checked) {
+                $("#dp3").prop("disabled", true);
+            } else {
+                $("#dp3").prop("disabled", false);
+            }
+        }
+    </script>
 
 {% endblock %}
 
