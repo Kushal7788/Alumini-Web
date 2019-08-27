@@ -14,7 +14,7 @@
 {% endblock %}
 {% block body %}
     <div class="wrapper">
-        <form action="{% url 'submit-form' %}" method="post" id="wizard">
+        <form action="{% url 'submit-form' %}" method="post" id="wizard" enctype="multipart/form-data">
             <!-- SECTION 1 -->
             {% csrf_token %}
             <h4></h4>
@@ -523,7 +523,7 @@
                             Profile Photo
                         </label>
                         <div class="form-holder">
-                            <img src="{% static 'register/images/gender-icon.jpg' %}" width="150" height="150">
+                            {{ form.prof_img }}
                         </div>
                     </div>
                 </div>

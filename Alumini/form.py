@@ -1,5 +1,7 @@
 from django import forms
 from .models import *
+from RegisterApp.models import MyUser
+
 
 class ContactForm(forms.ModelForm):
     name = forms.CharField(required=True)
@@ -9,3 +11,11 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactUs
         fields = ['name', 'email', 'query']
+
+
+class RegistrationForm(forms.ModelForm):
+    prof_img = forms.FileField()
+
+    class Meta:
+        model = MyUser
+        fields = ['prof_img']
