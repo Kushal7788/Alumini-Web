@@ -70,6 +70,8 @@ class JobDescription(models.Model):
     user_job = models.ForeignKey('MyUser', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
+        if self.company_name == None:
+            return "Null"
         return self.company_name
 
     def joiningDate(self):

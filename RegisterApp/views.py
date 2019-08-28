@@ -4,6 +4,7 @@ from RegisterApp.models import MyUser, GenderField, PassoutBatch, HostelName, Hi
 from .decorators import user_is_logged
 from Alumini.form import RegistrationForm
 
+
 def login(request):
     return render(request, 'LoginTemplates/Login.html', {})
 
@@ -52,8 +53,6 @@ def submit_form(request):
         school.school_state = request.POST.get('school_state')
         school.school_country = request.POST.get('school_country')
         school.school_hostel = HostelName.objects.get(pk=request.POST.get('hostel'))
-        school.school_user = user
-
 
         # Step 3 Data
         add = UserAddr()
@@ -62,25 +61,22 @@ def submit_form(request):
         add.user_city = request.POST.get('current_city')
         add.user_country = request.POST.get('current_country')
         add.user_state = request.POST.get('current_state')
-        add.curr_add_user = user
-
 
         # Step 4 Data
+        high_edu = HigherEducation()
         if ('higher_edu' in request.POST):
-            high_edu = HigherEducation()
             high_edu.user_high_education = HigherStudies.objects.get(pk=request.POST.get('higher_studies'))
             high_edu.user_course = CourseName.objects.get(pk=request.POST.get('course_taken'))
             high_edu.user_college = request.POST.get('college_name')
             high_edu.user_college_city = request.POST.get('college_city')
             high_edu.user_college_state = request.POST.get('college_state')
             high_edu.user_college_country = request.POST.get('college_country')
-            print(high_edu.user_college_state,high_edu.user_college_country,request.POST.get('college_state'),request.POST.get('college_country'))
-            high_edu.coll_user = user
+            print(high_edu.user_college_state, high_edu.user_college_country, request.POST.get('college_state'),
+                  request.POST.get('college_country'))
 
         # Step 5 Data
         jobs = JobDescription()
         if ('job' in request.POST):
-
             jobs.company_name = request.POST.get('company_name')
             jobs.position = request.POST.get('position')
             jobs.company_city = request.POST.get('work_city')
@@ -89,24 +85,29 @@ def submit_form(request):
             if ('is_working' in request.POST):
                 jobs.is_working = True;
             jobs.join_date = request.POST.get('joining_date')
-            if(not jobs.is_working):
+            if (not jobs.is_working):
                 jobs.resign_date = request.POST.get('resigning_date')
-            jobs.user_job = user
 
-
-        #Step 6 Data
+        # Step 6 Data
         user.insta_link = request.POST.get('insta_link')
         user.fb_link = request.POST.get('facebook_link')
         user.twitter_link = request.POST.get('twitter_link')
 
-        #Step 7 Data
+        # Step 7 Data
         user.set_password(request.POST.get('password'))
         user.prof_img = (request.FILES['prof_img'])
         # To save the file in static folder
         handle_uploaded_file(request.FILES['prof_img'])
         user.save()
+        if ('higher_edu' in request.POST):
+            high_edu.coll_user = user
+        school.school_user = user
         school.save()
-        if 'jobs' in request.POST:
+        add.curr_add_user = user
+
+        if 'job' in request.POST:
+            print("Entered Job")
+            jobs.user_job = user
             jobs.save()
         if ('higher_edu' in request.POST):
             high_edu.save()
@@ -119,6 +120,6 @@ def submit_form(request):
 
 
 def handle_uploaded_file(f):
-    with open('Alumini/static/upload/'+f.name, 'wb+') as destination:
+    with open('Alumini/static/upload/' + f.name, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
