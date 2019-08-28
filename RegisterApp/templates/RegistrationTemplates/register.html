@@ -11,6 +11,11 @@
 
     <!-- STYLE CSS -->
     <link rel="stylesheet" href="{% static 'register/css/style.css' %}">
+    <style>
+        .thumb-image{
+         width:300px;
+        }
+    </style>
 {% endblock %}
 {% block body %}
     <div class="wrapper">
@@ -517,18 +522,17 @@
             <h4></h4>
             <section>
                 <h3 style="margin-bottom: 37px;">Final Step</h3>
-                <!--
                 <div class="form-row">
                     <div class="form-col" style="width:100%;text-align:center">
                         <label for="">
                             Profile Photo
                         </label>
+                        <div id="image-holder"></div>
                         <div class="form-holder">
-                            { form.prof_img }}
+                            {{ form.prof_img }}
                         </div>
                     </div>
                 </div>
--->
                 <div class="form-row">
                     <div class="form-col" style="width:100%">
                         <label for="">
@@ -573,10 +577,14 @@
     <script src="{% static 'register/js/main.js' %}"></script>
     <script src="{% static 'register/js/autofill_place.js' %}"></script>
 
+
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTfgYD-w24vF-Y5tf4uQGojlPGhaT2AsI&libraries=places&callback=initAutocomplete"
             async defer></script>
-    <script>
+
+
+    <script src="{% static 'register/js/preview.js' %}"></script>
+     <script>
         function check() {
             var chkBox = document.getElementById('is_working');
             if (chkBox.checked) {

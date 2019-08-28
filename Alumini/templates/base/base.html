@@ -73,17 +73,44 @@
             <li><a href="{% url 'about' %}">About Us</a></li>
             <li><a href="{% url 'contact' %}">Contact Us</a></li>
             <li class="nav-item dropdown">
+<!--                <a-->
+<!--                        class="nav-link dropdown-toggle"-->
+<!--                        href="#"-->
+<!--                        id="navbarDropdown"-->
+<!--                        role="button"-->
+<!--                        data-toggle="dropdown"-->
+<!--                        aria-haspopup="true"-->
+<!--                        aria-expanded="false"-->
+<!--                >-->
+<!--                    {{ user.username }}-->
+<!--                </a>-->
                 <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="navbarDropdown"
-                        role="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
                 >
-                    {{ user.username }}
-                </a>
+                 {% if user.prof_img %}
+                    <img
+                    src="{{ user.prof_img.url }}"
+                    width="55"
+                    height="55"
+                    class="rounded-circle"
+                    />
+                    </a>
+                {% else %}
+                    <img
+                    src="{% static 'profile/images/gender-icon.jpg' %}"
+                    width="55"
+                    height="55"
+                    class="rounded-circle"
+                    />
+                    </a>
+                {% endif %}
+
                 <div
                         class="dropdown-menu"
                         aria-labelledby="navbarDropdown"
