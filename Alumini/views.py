@@ -76,12 +76,9 @@ def profileView(request):
     high_edu = current_user.highereducation_set.all()
     # this will give queryset of all jobs of particular user.
     jobs = current_user.jobdescription_set.all()
-    # In order to get current job location
-    current_location = jobs.get(is_working=True)
     my_profile = {
         'current_user': current_user,
         'jobs': jobs,
-        'job_location': current_location,
         'education': high_edu,
     }
     return render(request, 'ProfileTemplates/profile.html', my_profile)
