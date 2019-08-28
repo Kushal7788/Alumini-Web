@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from RegisterApp.models import MyUser, GenderField, PassoutBatch, HostelName, HigherStudies, CourseName, SchoolAdd, \
     UserAddr, HigherEducation, JobDescription
 from .decorators import user_is_logged
-from Alumini.form import RegistrationForm
+#from Alumini.form import RegistrationForm
 
 
 def login(request):
@@ -17,14 +17,14 @@ def register(request):
     hostels = HostelName.objects.all()
     higher_studies = HigherStudies.objects.all()
     courses = CourseName.objects.all()
-    form = RegistrationForm
+    #form = RegistrationForm
     args = {
         'gender': gender,
         'passout': passout,
         'hostels': hostels,
         'higher_studies': higher_studies,
         'courses': courses,
-        'form': form,
+        #'form': form,
     }
     return render(request, 'RegistrationTemplates/register.html', args)
 
@@ -95,9 +95,9 @@ def submit_form(request):
 
         # Step 7 Data
         user.set_password(request.POST.get('password'))
-        user.prof_img = (request.FILES['prof_img'])
+        #user.prof_img = (request.FILES['prof_img'])
         # To save the file in static folder
-        handle_uploaded_file(request.FILES['prof_img'])
+        #handle_uploaded_file(request.FILES['prof_img'])
         user.save()
         if ('higher_edu' in request.POST):
             high_edu.coll_user = user
@@ -119,7 +119,7 @@ def submit_form(request):
         return redirect('home')
 
 
-def handle_uploaded_file(f):
-    with open('Alumini/static/upload/' + f.name, 'wb+') as destination:
-        for chunk in f.chunks():
-            destination.write(chunk)
+# def handle_uploaded_file(f):
+#     with open('Alumini/static/upload/' + f.name, 'wb+') as destination:
+#         for chunk in f.chunks():
+#             destination.write(chunk)

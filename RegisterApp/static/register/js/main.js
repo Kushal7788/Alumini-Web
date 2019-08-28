@@ -155,8 +155,12 @@ $(function () {
             current_state: "required",
             current_city: "required",
             current_district: "required",
-            higher_studies: "required",
-            course_taken: "required",
+            higher_studies: {
+                required:'#higher_edu:checked'
+            },
+            course_taken: {
+                required:'#higher_edu:checked'
+            },
             college_name: {
                 required:'#higher_edu:checked'
             },

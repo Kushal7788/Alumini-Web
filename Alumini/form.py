@@ -13,9 +13,9 @@ class ContactForm(forms.ModelForm):
         fields = ['name', 'email', 'query']
 
 
-class RegistrationForm(forms.ModelForm):
-    prof_img = forms.FileField()
-
-    class Meta:
-        model = MyUser
-        fields = ['prof_img']
+# class RegistrationForm(forms.ModelForm):
+#     prof_img = forms.FileField()
+#
+#     class Meta:
+#         model = MyUser
+#         fields = ['prof_img']

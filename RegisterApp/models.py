@@ -121,7 +121,7 @@ class MyUser(AbstractUser):
     insta_link = models.URLField(blank=True, null=True)
     twitter_link = models.URLField(blank=True, null=True)
     linkedin_link = models.URLField(blank=True, null=True)
-    prof_img = models.FileField(blank=True)
+    #prof_img = models.FileField(blank=True)
     # Other Essential Info of user
     user_phone = models.CharField(max_length=10, blank=True, null=True)
     user_gender = models.ForeignKey(GenderField, on_delete=models.PROTECT, blank=True, null=True)
