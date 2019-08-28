@@ -12,3 +12,4 @@ db.*
 db.sqlite3
 /RegisterApp/__pycache__
 /RegisterApp/migrations
+/RegisterApp/Media
