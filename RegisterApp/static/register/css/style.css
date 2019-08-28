@@ -61,7 +61,8 @@ textarea {
 .wizard {
   position: relative;
   background:#fff;
-  padding: 64px 58px 0;
+  padding: 64px 58px 50px;
+  margin-top: 20px;
 
 }
 

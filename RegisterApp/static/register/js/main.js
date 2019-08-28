@@ -129,7 +129,7 @@ $(function () {
             // of an input field. Validation rules are defined
             // on the right side
 
-            /*first_name: "required",
+            first_name: "required",
             middle_name: "required",
             last_name: "required",
             email_username: {
@@ -143,11 +143,10 @@ $(function () {
             gender: "required",
             phone_number: "required",
             school_street_address: "required",
-            school_landmark: "required",
-            school_pincode: "required",
             school_district: "required",
-            school_taluka: "required",
             school_city: "required",
+            school_state: "required",
+            school_country: "required",
             hostel: "required",
             current_street_address: "required",
             current_landmark: "required",
@@ -155,19 +154,41 @@ $(function () {
             current_country: "required",
             current_state: "required",
             current_city: "required",
+            current_district: "required",
             higher_studies: "required",
             course_taken: "required",
-            college_name: "required",
-            college_country: "required",
-            college_state: "required",
-            college_city: "required",
-            company_name: "required",
-            position: "required",
-            work_experience: "required",
-            company_country: "required",
-            company_state: "required",
-            company_city: "required",
-*/
+            college_name: {
+                required:'#higher_edu:checked'
+            },
+            college_country:{
+                required:'#higher_edu:checked'
+            },
+            college_state: {
+                required:'#higher_edu:checked'
+            },
+            college_city: {
+                required:'#higher_edu:checked'
+            },
+            company_name: {
+                required:'#job:checked'
+            },
+    
+            position: {
+                required:'#job:checked'
+            },
+            company_country: {
+                required:'#job:checked'
+            },
+            company_state: {
+                required:'#job:checked'
+            },
+            company_city: {
+                required:'#job:checked'
+            },
+            password: "required",
+            conf_password: {
+                equalTo: "#password"
+            }
 
         },
         // Specify validation error messages
