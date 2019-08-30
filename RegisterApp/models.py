@@ -59,14 +59,14 @@ class UserAddr(models.Model):
 # User Job table
 class JobDescription(models.Model):
     # job_user = models.ForeignKey(MyUser, on_delete=models.CASCADE, blank=True, null=True)
-    company_name = models.CharField(max_length=100, blank=True, null=True)
-    position = models.CharField(max_length=100, blank=True, null=True)
-    company_city = models.CharField(max_length=100, blank=True, null=True)
-    company_state = models.CharField(max_length=100, blank=True, null=True)
-    company_country = models.CharField(max_length=100, blank=True, null=True)
-    join_date = models.DateField(null=False, default=date(2000, 1, 1))
-    resign_date = models.DateField(null=False, default=date(2000, 1, 1))
-    is_working = models.BooleanField(default=False)
+    company_name = models.CharField(max_length=100, null=True)
+    position = models.CharField(max_length=100, null=True)
+    company_city = models.CharField(max_length=100,null=True)
+    company_state = models.CharField(max_length=100, null=True)
+    company_country = models.CharField(max_length=100,null=True)
+    join_date = models.DateField(null=True,default=date(2000,1,1))
+    resign_date = models.DateField(null=True, blank=True,default=date(2000,1,1))
+    is_working = models.BooleanField()
     user_job = models.ForeignKey('MyUser', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):

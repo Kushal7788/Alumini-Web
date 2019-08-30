@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'add-job/css/add-job.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container ">
+
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6 form-background">
+            <h1>Add Job Experience</h1>
+            <hr>
+            <form method="post">
+                {% csrf_token %}
+                Company Name : <br>
+                <input type="text" name="company_name" id="c_name" required><br>
+                Position : <br>
+                <input type="text" name="position" id="pos" required><br>
+                Start Date : <br>
+                <input type="date" name="start_date" id="s_date" required/><br>
+                <input type="checkbox" name="checkbox1" id="cbox"/> I'm currently working in this role <br>
+                End Date : <br>
+                <input type="date" name="end_date" id="e_date"/><br>
+                Company City : <br>
+                <input type="text" name="city" id="city" required/><br>
+                Company State : <br>
+                <input type="text" name="state" id="state" required><br>
+                Company Country : <br>
+                <input type="text" name="country" id="country" required><br>
+                <input type="submit" value="Submit" class="btn btn-success">
+            </form>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'add-job/js/add-job.js' %}"></script>
+{% endblock %}s

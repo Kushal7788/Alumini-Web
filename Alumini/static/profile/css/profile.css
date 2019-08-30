@@ -118,3 +118,7 @@
 .profile-container{
     padding:3rem;
 }
+
+#add-job{
+    float : right;
+}
