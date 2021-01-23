@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <title>{% block title %}Login{% endblock %}</title>
+    <!--loads path to static files-->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+            crossorigin="anonymous"
+    />
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+    ></script>
+    <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+    ></script>
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/base.css' %}"/>
+    {% block css %}
+    {% endblock %}
+    <style>
+        .background {
+            background-image: url("{% static 'base/img/bg-2.jpg' %}");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            -o-object-fit: cover;
+            object-fit: cover;
+            /* background-image: radial-gradient(
+              circle 788px at 14.5% 19.3%,
+              rgba(81, 109, 179, 1) 0%,
+              rgba(178, 98, 152, 1) 100.2%
+            ); */
+        <!-- background-color: #7f53ac;
+        --> <!-- background-image: linear-gradient(315 deg, #7f53ac 0 %, #647dee 74 %);
+        -->
+        }
+    </style>
+
+</head>
+<body class="background">
+<div class="navbar">
+    <div class="logo">
+        <h2>LOGO</h2>
+    </div>
+    <ul class="links">
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Members</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li class="nav-item dropdown">
+<!--                <a-->
+<!--                        class="nav-link dropdown-toggle"-->
+<!--                        href="#"-->
+<!--                        id="navbarDropdown"-->
+<!--                        role="button"-->
+<!--                        data-toggle="dropdown"-->
+<!--                        aria-haspopup="true"-->
+<!--                        aria-expanded="false"-->
+<!--                >-->
+<!--                    {{ user.username }}-->
+<!--                </a>-->
+                <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >
+                 {% if user.prof_img %}
+                    <img
+                    src="{{ user.prof_img.url }}"
+                    width="55"
+                    height="55"
+                    class="rounded-circle"
+                    />
+                    </a>
+                {% else %}
+                    <img
+                    src="{% static 'profile/images/gender-icon.jpg' %}"
+                    width="55"
+                    height="55"
+                    class="rounded-circle"
+                    />
+                    </a>
+                {% endif %}
+
+                <div
+                        class="dropdown-menu"
+                        aria-labelledby="navbarDropdown"
+                        style="margin: 0;"
+                >
+                    <a class="dropdown-item" href="{% url 'profile' %}" style="margin: 0;padding:5px"
+                    >Profile</a
+                    >
+                    {% if user.is_superuser %}
+                     <a class="dropdown-item" href="{% url 'admin_privileges' %}" style="margin: 0;padding:5px"
+                    >Admin_Privileges</a
+                    >
+                    {% endif %}
+                    <a class="dropdown-item" href="{% url 'user-logout' %}" style="margin: 0;padding:5px"
+                    >Logout</a
+                    >
+                </div>
+            </li>
+            </ul>
+        {% else %}
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+
+        {% endif %}
+    </ul>
+    {% if user.is_authenticated %}
+    {% else %}
+        <div class="right">
+            <form action="{% url 'register' %}">
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    {% endif %}
+
+
+    <div class="toggle">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</div>
+
+{% block body %}
+{% endblock %}
+<!-- Footer -->
+<!-- FOOTER START -->
+<div class="footer">
+    <div class="contain">
+        <div class="col">
+            <h1><strong>Contact Info</strong></h1>
+            <p>{{ homedata.contact_info }}</p>
+
+        </div>
+        <!--        <div class="col">-->
+        <!--          <h1>About Us</h1>-->
+        <!--          <p>-->
+        <!--            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, veniam!-->
+        <!--          </p>-->
+        <!--        </div>-->
+        <div class="col social">
+            <h1>Social</h1>
+            <ul>
+                <li>
+                    <a href="{{ homedata.fb_link }}" class="fa fa-facebook"></a>
+                </li>
+                <li>
+                    <a href="{{ homedata.twitter_link }}" class="fa fa-twitter"></a>
+                </li>
+                <li>
+                    <a href="{{ homedata.insta_link }}" class="fa fa-instagram"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- END OF FOOTER -->
+<script type="text/javascript" src="{% static 'base/js/base.js' %}"></script>
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

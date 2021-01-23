@@ -1,0 +1,19 @@
+
+
+.container-center {
+    margin-left: auto;
+    margin-right: auto;
+    background:rgba(0,0,0,0.6);
+    color:white;
+    padding:2rem;
+    text-align: center
+
+}
+
+
+
+
+.container{
+    display:flex;
+    align-items:center;
+}

@@ -1,0 +1,219 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'profile/css/profile.css' %}"/>
+{% endblock %}
+
+{% block body %}
+<div class="profile-container">
+    <div class="container emp-profile">
+        <form action="" method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="{% static 'profile/images/gender-icon.jpg' %}" alt=""/>
+                        <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h1>{{current_user.first_name}} {{current_user.last_name}}</h1>
+                        <h4>{{job_location.position}}</h4>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                </div>
+            </div>
+
+            <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                       aria-controls="home" aria-selected="true">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                       aria-controls="profile" aria-selected="false">Timeline</a>
+                </li>
+            </ul>
+            <br><br>
+            <div class="tab-content profile-tab" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row">
+                        <div class="col-md-3" style="padding-right:10px; border-right: 1px solid #ccc; ">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                 aria-orientation="vertical">
+                                <a class="nav-link active vertical-nav" id="v-pills-overview-tab" data-toggle="pill"
+                                   href="#v-pills-overview" role="tab" aria-controls="v-pills-overview"
+                                   aria-selected="true">Overview</a>
+                                <a class="nav-link vertical-nav" id="v-pills-education-tab" data-toggle="pill"
+                                   href="#v-pills-education" role="tab" aria-controls="v-pills-education"
+                                   aria-selected="false">Education</a>
+                                <a class="nav-link vertical-nav" id="v-pills-work-tab" data-toggle="pill"
+                                   href="#v-pills-work" role="tab" aria-controls="v-pills-work" aria-selected="false">Work
+                                    Experience</a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div class="tab-pane fade show active" id="v-pills-overview" role="tabpanel"
+                                     aria-labelledby="v-pills-overview-tab">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <label>Current City : </label>
+                                            <p>
+                                                {{curr_addr.user_city}},
+                                                {{curr_addr.user_state}},
+                                                {{curr_addr.user_country}},
+                                            </p>
+                                            <hr>
+                                            <label>Home Town : </label>
+                                            <p>
+                                                {{school_addr.school_city}}
+                                                {{school_addr.school_state}}
+                                                {{school_addr.school_country}}
+                                            </p>
+                                            <hr>
+                                            <label>Address : </label>
+                                            <p>{{curr_addr.user_addr}}</p>
+                                            <hr>
+                                        </div>
+                                        <div class="col-md-4">
+                                        <span class="d-inline-block">
+                                            <i class="fas fa-user" style="color : #badfdb"></i>
+                                        </span>
+                                            <span class="d-inline-block">
+                                            <p style="color : #6c7b95"> - {{current_user.first_name}} {{current_user.last_name}}</p>
+                                        </span><br>
+                                            <span class="d-inline-block">
+                                            <i class="fas fa-envelope" style="color : #badfdb"></i>
+                                        </span>
+                                            <span class="d-inline-block">
+                                            <p style="color : #6c7b95"> - {{current_user.email}}</p>
+                                        </span><br>
+                                            <span class="d-inline-block">
+                                            <i class="fas fa-phone" style="color : #badfdb"></i>
+                                        </span>
+                                            <span class="d-inline-block">
+                                            <p style="color : #6c7b95"> - {{current_user.user_phone}}</p>
+                                        </span><br>
+                                            <span class="d-inline-block">
+                                            <i class="fas fa-birthday-cake" style="color : #badfdb"></i>
+                                        </span>
+                                            <span class="d-inline-block">
+                                            <p style="color : #6c7b95"> - {{current_user.birthDate}}</p>
+                                        </span><br>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-education" role="tabpanel"
+                                     aria-labelledby="v-pills-education-tab">
+                                    <h3>School Details</h3>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Passout Batch : </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{current_user.user_batch.title}}</p>
+                                        </div>
+                                    </div> <!--Passout Batch-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Hostel : </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{school_addr.school_hostel}}</p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <h3>Higher Education</h3>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-2">
+
+                                        </div>
+                                        <div class="col-md-8">
+                                            {% if education %}
+                                            {% for clg in education %}
+                                            <div class="jumbotron" id="jumbo">
+                                                <h2 class="display-4">{{clg.user_college}}</h2>
+                                                <h3 class="my-4">{{clg.user_course}}</h3>
+                                                <h6 class="lead">{{clg.user_college_city}},
+                                                    {{clg.user_college_state}}</h6>
+                                            </div>
+                                            {% endfor %}
+                                            {% else %}
+                                            <div class="jumbotron" id="jumbo">
+                                                <h3 class="my-4">No Education details found</h3>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-2">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="tab-pane fade" id="v-pills-work" role="tabpanel"
+                                     aria-labelledby="v-pills-work-tab">
+                                <span class="d-inline-block">
+                                    <h2>Experience</h2>
+                                </span>
+                                    <span class="d-inline-block">
+                                    <h5><a href="{% url 'addJob' %}"><i
+                                            class="fas fa-plus" style="    position: relative;
+                                                                           left: 500px;
+                                                                        "></i></a></h5>
+                                </span>
+
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-2">
+
+                                        </div>
+                                        <div class="col-md-8">
+                                            {% if jobs %}
+                                            {% for job in jobs %}
+                                            <div class="jumbotron" id="jumbo">
+                                                <h2 class="display-4">{{job.company_name}}</h2>
+                                                <h3 class="my-4">{{job.position}}</h3>
+                                                {% if job.is_working == False %}
+                                                <h5 class="lead"> {{job.joiningDate}} - {{job.resigningDate}} </h5>
+                                                {% else %}
+                                                <h5 class="lead"> {{job.joiningDate}} - Present </h5>
+                                                {% endif %}
+                                                <h6 class="lead">{{job.company_city}}, {{job.company_state}}</h6>
+                                            </div>
+                                            {% endfor %}
+                                            {% else %}
+                                            <div class="jumbotron" id="jumbo">
+                                                <h3 class="my-4">No Job details found</h3>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-2">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <h1>All Your Post Come Here</h1>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

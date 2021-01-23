@@ -1,0 +1,30 @@
+.form-background{
+    margin-top : 5%;
+	margin-left:auto;
+	margin-right:auto;
+
+	background: #FFF;
+	padding: 30px 30px 20px 30px;
+	box-shadow: rgba(187, 187, 187, 1) 0 0px 20px -1px;
+	-webkit-box-shadow: rgba(187, 187, 187, 1) 0 0px 20px -1px;
+	font: Arial, Helvetica, sans-serif;
+	color: #666;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+.form-background input[type="text"], .form-background input[type="date"], .form-background input[type="checkbox"]{
+    color: #555;
+    padding: 3px 0px 3px 5px;
+    margin-top: 2px;
+    margin-right: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #e5e5e5;
+    background: #fbfbfb;
+	height: 25px;
+	line-height:15px;
+    outline: 0;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+    box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+}
+

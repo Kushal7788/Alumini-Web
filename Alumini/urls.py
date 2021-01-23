@@ -13,12 +13,32 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url, include
-from django.conf.urls.static import static
+from . import views
 from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^about$', views.about, name='about'),
+    url(r'^contact$', views.contact, name='contact'),
+    # Home Page (/login)
+    url(r'^$', views.home, name='home'),
+    url(r'^login/$', views.home, name='home'),
+    url(r'^logout/$', views.userLogout, name='user-logout'),
+    url(r'^register/', include('RegisterApp.urls'), name='register'),
+    url(r'^login/profile$', views.profileView, name='profile'),
+    url('^', include('django.contrib.auth.urls')),
+    url(r'^admin_privilege/', include('Adminpanel.urls'), name='adminpanel'),
+    url(r'^login/profile/add-job$', views.addJob, name='addJob'),
+    # url(r'^reset-password/$', views.resetPassword, name='reset-password')
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

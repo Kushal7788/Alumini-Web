@@ -1,0 +1,304 @@
+:focus {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+input,
+textarea,
+select,
+button {
+
+  font-size: 14px;
+  color: #333;
+}
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+select option[value=""][disabled] {
+  display: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+
+
+
+.wrapper {
+  width: 819px;
+  margin: auto;
+  padding: 7px;
+
+}
+
+.wizard {
+  position: relative;
+  background:#fff;
+  padding: 64px 58px 50px;
+  margin-top: 20px;
+
+}
+
+.steps .current-info,
+.steps .number {
+  display: none;
+}
+
+.steps {
+  position: absolute;
+  right: 42px;
+  top: 5px;
+  z-index: 9;
+}
+.steps ul {
+  position: relative;
+}
+.steps ul:before {
+  content: "1";
+  font-size: 40px;
+  color: #ccc;
+
+}
+.steps ul:after {
+  content: "/ 7";
+  font-size: 15px;
+  color: #ccc;
+
+  position: absolute;
+  left: 16px;
+  top: 13px;
+  width: 22px;
+}
+.steps ul.step-2:before {
+  content: "2";
+}
+.steps ul.step-2:after {
+  left: 31px;
+}
+.steps ul.step-3:before {
+  content: "3";
+}
+.steps ul.step-3:after {
+  left: 31px;
+}
+.steps ul.step-4:before {
+  content: "4";
+}
+.steps ul.step-4:after {
+  left: 31px;
+}
+.steps ul.step-5:before {
+  content: "5";
+}
+.steps ul.step-5:after {
+  left: 31px;
+}
+.steps ul.step-6:before {
+  content: "6";
+}
+.steps ul.step-6:after {
+  left: 31px;
+}
+.steps ul.step-7:before {
+  content: "7";
+}
+.steps ul.step-7:after {
+  left: 31px;
+}
+
+h3 {
+
+  font-size: 35px;
+  color: #3377c0;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin-bottom: 32px;
+}
+
+.form-row {
+  display: flex;
+
+  margin-bottom: 25px;
+  flex-wrap: inherit;
+}
+.form-row .form-col {
+  width: 50%;
+  margin-right: 40px;
+}
+.form-row .form-col:last-child {
+  margin-right: 0;
+}
+
+.form-col label {
+  color: #333;
+  margin-bottom: 7px;
+  display: block;
+}
+
+.form-holder {
+  position: relative;
+}
+.form-holder i:not(.zmdi-chevron-down) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  font-size: 17px;
+}
+.form-holder i.zmdi-chevron-down {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  font-size: 17px;
+}
+.form-holder.password i {
+  cursor: pointer;
+}
+
+.form-control {
+  height: 42px;
+  border: 1px solid #ccc;
+  width: 100%;
+  background: none;
+  font-size: 15px;
+  padding-left: 46px;
+  color: #999;
+
+  /* &::-webkit-input-placeholder {
+  	color: #333;
+  }
+  &::-moz-placeholder {
+  	color: #333;
+  }
+  &:-ms-input-placeholder {
+  	color: #333;
+  }
+  &:-moz-placeholder {
+  	color: #333;
+  } */
+}
+.form-control:focus {
+  border-color: #3377c0;
+}
+
+
+.actions ul {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 42px;
+}
+.actions ul.mt-7 {
+  margin-top: 7px;
+}
+.actions li a {
+  border: none;
+  display: inline-flex;
+  height: 42px;
+  width: 112px;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  background: #3377c0;
+  text-transform: uppercase;
+  justify-content: center;
+  letter-spacing: 1px;
+}
+.actions li a:hover {
+  background: #3b87d9;
+}
+.actions li:first-child a {
+  background: none;
+  border: 1px solid #3377c0;
+  color: #3377c0;
+}
+.actions li:first-child a:hover {
+  border-color: transparent;
+  color: #fff;
+  background: #3b87d9;
+}
+.actions li[aria-disabled="true"]:before {
+  content: "Your must fill all fields, to be able to continue";
+}
+.actions li[aria-disabled="true"] a {
+  display: none;
+}
+
+/*Error Styling */
+.form-col .error{
+    color:red;
+    font-size:14px;
+}
+
+@media (max-width: 767px) {
+  body {
+    background: red;
+    height: auto;
+    display: block;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  .wrapper {
+    width: auto;
+    padding: 0;
+  }
+
+  .wizard {
+    height: auto;
+    padding: 60px 20px 20px;
+  }
+
+  .form-row {
+    display: block;
+  }
+  .form-row .form-col {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
+
+  .actions ul {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .actions ul li {
+    margin-bottom: 20px;
+  }
+
+
+}
+
+
+/*# sourceMappingURL=style.css.map */

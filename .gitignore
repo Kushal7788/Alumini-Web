@@ -1,0 +1,15 @@
+/.idea*
+*.iml
+*.xml
+*.pyc
+db.sqlite3
+/Alumini/__pycache__
+/Alumini/migrations
+*.sqlite3
+venv
+venv/*
+db.*
+db.sqlite3
+/RegisterApp/__pycache__
+/RegisterApp/migrations
+/RegisterApp/Media
